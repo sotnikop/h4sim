@@ -1,117 +1,162 @@
-# Reinitialize variables due to execution state reset
-
 import random
 import pandas as pd
-#import ace_tools as tools
+import json
 
-# Given Stats (Reinitialize)
-large_ship = {
-    "HP": 1222,
-    "Heavy Attack": 158,
-    "Piercing": 612,
-    "Armor": 500,
-    "Speed": 28,
-    "Org": 50
-}
+# === Ship and Fleet Classes ===
+class Ship:
+    def __init__(self, ship_type, stats):
+        self.type = ship_type
+        self.stats = stats
+        self.hp = stats["HP"]
+        self.org = stats["Org"]
 
-small_ship = {
-    "HP": 283,
-    "Heavy Attack": 68,
-    "Piercing": 198,
-    "Armor": 75,
-    "Speed": 35,
-    "Org": 50
-}
+    def is_alive(self):
+        return self.hp > 0
 
-num_small_ships = 4
+    def take_damage(self, damage, max_hp):
+        hp_loss, org_loss = calculate_hp_org_loss(damage, self.hp, self.org, max_hp)
+        self.hp = max(0, self.hp - hp_loss)
+        self.org = max(0, self.org - org_loss)
+        return hp_loss, org_loss
 
-# HOI4 Naval Damage Reduction Formula
+    def get_effective_attack(self):
+        # Apply ORG penalty: 50% attack reduction if ORG is 0
+        return self.stats["Heavy Attack"] * (0.5 if self.org <= 0 else 1.0)
+
+class Fleet:
+    def __init__(self, composition, ship_templates):
+        self.ships = self.create_fleet(composition, ship_templates)
+
+    def create_fleet(self, composition, ship_templates):
+        fleet = []
+        for ship_type, count in composition.items():
+            if ship_type not in ship_templates:
+                raise ValueError(f"Unknown ship type: {ship_type}")
+            for _ in range(count):
+                fleet.append(Ship(ship_type, ship_templates[ship_type]))
+        return fleet
+
+    def get_active_ships(self):
+        return [ship for ship in self.ships if ship.is_alive()]
+
+    def is_defeated(self):
+        return not any(ship.is_alive() for ship in self.ships)
+
+# === Combat Mechanics ===
 def calculate_damage_reduction(armor, piercing):
-    if armor > piercing:
-        return 90 * (1 - (piercing / armor))  # Formula for damage reduction
-    return 0  # No reduction if piercing >= armor
+    """Calculate damage reduction based on armor and piercing."""
+    return 90 * (1 - (piercing / armor)) if armor > piercing else 0
 
-# HOI4 HP & ORG Loss Formula (Adjusted for ORG Immunity Scaling)
-def calculate_hp_org_loss(damage, current_hp, current_org):
-    """Applies scaling HP and ORG loss based on HP level."""
-    org_loss_multiplier = 1 - (current_hp / small_ship["HP"])  # ORG damage scales with HP lost
-    hp_loss = damage * 0.6  # 60% of damage applies to HP
-    org_loss = damage * 0.4 * org_loss_multiplier  # ORG loss starts small, increases as HP is lost
+def calculate_hp_org_loss(damage, current_hp, current_org, max_hp):
+    """Calculate HP and ORG loss with scaling."""
+    org_loss_multiplier = 1 - (current_hp / max_hp)
+    hp_loss = damage * 0.6  # 60% of damage to HP
+    org_loss = damage * 0.4 * org_loss_multiplier  # ORG loss scales with HP lost
     return hp_loss, org_loss
 
-# Reset battle conditions for independent tracking of all small ships
-large_ship_hp = large_ship["HP"]
-large_ship_org = large_ship["Org"]
-small_ships = [{"HP": small_ship["HP"], "ORG": small_ship["Org"]} for _ in range(num_small_ships)]
+def calculate_hit_chance(attacker_speed, target_speed):
+    """Calculate hit chance based on speed difference."""
+    return min(1.0, max(0.5, 0.8 + (attacker_speed - target_speed) / 100))
 
-# Store battle progress for 20 rounds
-battle_log = []
+def calculate_critical_hit(piercing, armor):
+    """Calculate critical hit multiplier if piercing significantly exceeds armor."""
+    return 1.5 if piercing > 1.5 * armor else 1.0
 
-# Combat loop with independent ship tracking
-for round_num in range(1, 21):  # First 20 rounds
-    if large_ship_hp <= 0 or all(ship["HP"] <= 0 for ship in small_ships):
-        break  # Stop if either side is fully eliminated
+# === Targeting Logic ===
+def target_enemy(enemy_fleet):
+    """Select a random active enemy ship as the target."""
+    active_enemies = enemy_fleet.get_active_ships()
+    return random.choice(active_enemies) if active_enemies else None
 
-    # Remove any ships that have reached HP ≤ 0
-    small_ships = [ship for ship in small_ships if ship["HP"] > 0]
+# === Combat Simulator ===
+class CombatSimulator:
+    def __init__(self, fleet1, fleet2, max_rounds=20):
+        self.fleet1 = fleet1
+        self.fleet2 = fleet2
+        self.max_rounds = max_rounds
+        self.battle_log = []
 
-    # Large ship randomly selects a small ship to attack (only among active ones)
-    if small_ships:  # Ensure there are still ships to attack
-        target_ship = random.choice(small_ships)
+    def generate_log_columns(self):
+        """Generate dynamic column names for the battle log."""
+        columns = ["Round"]
+        for fleet, name in [(self.fleet1, "Fleet1"), (self.fleet2, "Fleet2")]:
+            for i, ship in enumerate(fleet.ships):
+                columns.extend([
+                    f"{name} Ship {i+1} ({ship.type}) HP",
+                    f"{name} Ship {i+1} ({ship.type}) ORG"
+                ])
+        return columns
 
-        # Large ship attacks the selected small ship
-        hp_loss_small, org_loss_small = calculate_hp_org_loss(large_ship["Heavy Attack"], target_ship["HP"], target_ship["ORG"])
-        target_ship["HP"] -= hp_loss_small
-        target_ship["ORG"] -= max(0, org_loss_small)  # Ensure ORG doesn't become positive
+    def log_round(self, round_num):
+        """Log the state of all ships in the current round."""
+        log_data = [round_num]
+        for fleet in [self.fleet1, self.fleet2]:
+            for ship in fleet.ships:
+                log_data.extend([ship.hp, ship.org])
+        self.battle_log.append(log_data)
 
-        # If a ship reaches HP ≤ 0, remove it from the list
-        small_ships = [ship for ship in small_ships if ship["HP"] > 0]
+    def run_combat(self):
+        """Run the combat simulation and return the battle log as a DataFrame."""
+        for round_num in range(1, self.max_rounds + 1):
+            if self.fleet1.is_defeated() or self.fleet2.is_defeated():
+                break
 
-    # Small ships attack the large ship (only active ones contribute damage)
-    active_small_ships = len(small_ships)
-    total_damage_from_small_ships = active_small_ships * small_ship["Heavy Attack"] * (1 - (calculate_damage_reduction(large_ship["Armor"], small_ship["Piercing"]) / 100))
-    #debug
-    dr = calculate_damage_reduction(large_ship["Armor"], small_ship["Piercing"])
+            # Fleet 1 attacks
+            for ship in self.fleet1.get_active_ships():
+                target = target_enemy(self.fleet2)
+                if target:
+                    # Apply hit chance and critical hit
+                    if random.random() < calculate_hit_chance(ship.stats["Speed"], target.stats["Speed"]):
+                        damage = ship.get_effective_attack() * calculate_critical_hit(
+                            ship.stats["Piercing"], target.stats["Armor"]
+                        )
+                        # Apply damage reduction
+                        damage *= (1 - calculate_damage_reduction(target.stats["Armor"], ship.stats["Piercing"]) / 100)
+                        target.take_damage(damage, target.stats["HP"])
 
-    hp_loss_large, org_loss_large = calculate_hp_org_loss(total_damage_from_small_ships, large_ship_hp, large_ship_org)
-    large_ship_hp -= hp_loss_large
+            # Fleet 2 attacks
+            for ship in self.fleet2.get_active_ships():
+                target = target_enemy(self.fleet1)
+                if target:
+                    if random.random() < calculate_hit_chance(ship.stats["Speed"], target.stats["Speed"]):
+                        damage = ship.get_effective_attack() * calculate_critical_hit(
+                            ship.stats["Piercing"], target.stats["Armor"]
+                        )
+                        damage *= (1 - calculate_damage_reduction(target.stats["Armor"], ship.stats["Piercing"]) / 100)
+                        target.take_damage(damage, target.stats["HP"])
 
-    # Ensure ORG loss is correctly scaled and does not become negative
-    large_ship_org_loss_multiplier = 1 - (large_ship_hp / large_ship["HP"])
-    org_loss_large = abs(org_loss_large * large_ship_org_loss_multiplier)  # Ensuring ORG loss is always positive
-    large_ship_org = max(0, large_ship_org - org_loss_large)
+            # Log the round
+            self.log_round(round_num)
 
-    # Apply correct ORG penalty separately for each side
-    large_ship_penalty = 0.5 if large_ship_org <= 0 else 0
-    small_ships_penalty = 0.5 if any(ship["ORG"] <= 0 for ship in small_ships) else 0
+        # Create DataFrame for battle log
+        return pd.DataFrame(self.battle_log, columns=self.generate_log_columns())
 
-    # Adjust effective attack values for both sides based on ORG penalties
-    effective_large_ship_attack = large_ship["Heavy Attack"] * (1 - large_ship_penalty)
-    effective_small_ship_attack = small_ship["Heavy Attack"] * (1 - small_ships_penalty)
+# === Configuration Loader ===
+def load_ship_templates(ship_templates_path):
+    """Load ship templates from a JSON file."""
+    with open(ship_templates_path, "r") as f:
+        return json.load(f)
 
-    # Log the round details with independent ship tracking
-    battle_log.append([
-        round_num, large_ship_hp, large_ship_org, effective_large_ship_attack, total_damage_from_small_ships,dr,
-        small_ships[0]["HP"] if len(small_ships) > 0 else None, small_ships[0]["ORG"] if len(small_ships) > 0 else None,
-        small_ships[1]["HP"] if len(small_ships) > 1 else None, small_ships[1]["ORG"] if len(small_ships) > 1 else None,
-        small_ships[2]["HP"] if len(small_ships) > 2 else None, small_ships[2]["ORG"] if len(small_ships) > 2 else None,
-        small_ships[3]["HP"] if len(small_ships) > 3 else None, small_ships[3]["ORG"] if len(small_ships) > 3 else None
-    ])
+def load_config(config_path):
+    """Load fleet compositions and simulation parameters from a JSON config file."""
+    with open(config_path, "r") as f:
+        return json.load(f)
 
-# Create DataFrame to display results for rounds 1-20
-df_battle_log_debug = pd.DataFrame(battle_log, columns=[
-    "Round", "Large Ship HP", "Large Ship ORG", "Effective Large Ship Attack", "Total Damage to Large Ship","dr",
-    "Small Ship 1 HP", "Small Ship 1 ORG",
-    "Small Ship 2 HP", "Small Ship 2 ORG",
-    "Small Ship 3 HP", "Small Ship 3 ORG",
-    "Small Ship 4 HP", "Small Ship 4 ORG"
-])
+# === Main Execution ===
+if __name__ == "__main__":
+    # Load ship templates and config
+    ship_templates = load_ship_templates("ships.json")
+    config = load_config("config.json")
 
-''' # Extracting combat data between rounds 6 and 11 to analyze large ship's attack values
-rounds_6_to_11_data = df_battle_log_debug[df_battle_log_debug["Round"].between(0, 11)][
-    ["Round", "Large Ship ORG", "Effective Large Ship Attack"]
-] '''
+    # Create fleets
+    fleet1 = Fleet(config["fleet1"], ship_templates)
+    fleet2 = Fleet(config["fleet2"], ship_templates)
+    max_rounds = config["max_rounds"]
 
-# Print the full battle log in terminal-friendly format
-print("\n===== Battle Simulation Results =====\n")
-print(df_battle_log_debug.to_string(index=False))
+    # Run simulation
+    simulator = CombatSimulator(fleet1, fleet2, max_rounds)
+    battle_log_df = simulator.run_combat()
+
+    # Print results
+    print("\n===== Battle Simulation Results =====\n")
+    print(battle_log_df.to_string(index=False))

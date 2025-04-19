@@ -1,0 +1,37 @@
+{
+    "ship_templates": {
+        "Battleship": {
+            "HP": 1222,
+            "Heavy Attack": 158,
+            "Piercing": 612,
+            "Armor": 500,
+            "Speed": 28,
+            "Org": 50
+        },
+        "Destroyer": {
+            "HP": 283,
+            "Heavy Attack": 68,
+            "Piercing": 300,
+            "Armor": 250,
+            "Speed": 35,
+            "Org": 50
+        },
+        "Cruiser": {
+            "HP": 600,
+            "Heavy Attack": 100,
+            "Piercing": 400,
+            "Armor": 350,
+            "Speed": 32,
+            "Org": 50
+        }
+    },
+    "fleet1": {
+        "Battleship": 1,
+        "Cruiser": 2
+    },
+    "fleet2": {
+        "Destroyer": 4,
+        "Cruiser": 1
+    },
+    "max_rounds": 20
+}
