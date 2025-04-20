@@ -8,8 +8,32 @@ def parse_modules(file_path):
     return raw.get('equipment_modules', [None, {}])[1]
 
 def parse_ships(file_path):
+    raw_lines = []
+    with open(file_path, encoding='utf-8') as f:
+        for line in f:
+            raw_lines.append(line)
+
     raw = pdxparser.pdx_parse(file_path)
-    return raw.get('equipments', [None, {}])[1]
+    equipments = raw.get('equipments', [None, {}])[1]
+
+    # Extract comments for each top-level key
+    name_comments = {}
+    for line in raw_lines:
+        line = line.strip()
+        if '=' in line and '#' in line:
+            key_part, comment = line.split('#', 1)
+            key = key_part.split('=')[0].strip()
+            name_comments[key] = comment.strip()
+
+    # Attach comment (name) to each equipment entry
+    for key in equipments:
+        if key in name_comments:
+            entry = equipments[key]
+            if isinstance(entry, list) and isinstance(entry[1], dict):
+                entry[1]['_comment_name'] = name_comments[key]
+
+    return equipments
+
 
 def extract_module_stats(modules):
     module_data = {}
@@ -33,7 +57,9 @@ def extract_base_stats(ship):
     return {
         'manpower': float(ship.get('manpower', [None, 0])[1]),
         'naval_speed': float(ship.get('naval_speed', [None, 0])[1]),
-        'build_cost_ic': float(ship.get('build_cost_ic', [None, 0])[1])
+        'build_cost_ic': float(ship.get('build_cost_ic', [None, 0])[1]),
+        'max_strength': float(ship.get('max_strength', [None, 0])[1]),
+
     }
 def calculate_ship_stats(ship_name, ship_data, module_data):
     base = extract_base_stats(ship_data)
@@ -45,7 +71,7 @@ def calculate_ship_stats(ship_name, ship_data, module_data):
 
     for mod in modules:
         if isinstance(mod, list):
-            mod = mod[1]  # unwrap ['=', 'modulename']
+            mod = mod[1]
         if mod == 'empty' or mod not in module_data:
             continue
 
@@ -66,13 +92,20 @@ def calculate_ship_stats(ship_name, ship_data, module_data):
 
     final_stats['manpower'] = base['manpower']
     final_stats['build_cost_ic'] += base['build_cost_ic']
-    final_stats['naval_speed'] = base['naval_speed'] * (1 + speed_mod)
+    final_stats['Speed'] = base['naval_speed'] * (1 + speed_mod)
+    final_stats['HP'] = base['max_strength']
+    final_stats['Org'] = "100"
+    final_stats['Armor'] = final_stats.get('armor_value', 0.0)
+
+
 
     for k, vals in averages.items():
         final_stats[k] = sum(vals) / len(vals) if vals else 0
 
-    final_stats['ship_name'] = ship_name
+    final_stats['ship_id'] = ship_name
+    final_stats['display_name'] = ship_data.get('_comment_name', '')  # ⬅️ Add this
     return final_stats
+
 
 # === RUN ===
 module_files = [
@@ -83,6 +116,7 @@ module_files = [
         "shipdata\\ita_ship_modules.txt",
         "shipdata\\sov_ship_modules.txt",
         "shipdata\\usa_ship_modules.txt",
+        "shipdata\\01_generic_ship_modules.txt",
 
     # Add more as needed
 ]

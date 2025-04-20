@@ -21,7 +21,7 @@ class Ship:
 
     def get_effective_attack(self):
         # Apply ORG penalty: 50% attack reduction if ORG is 0
-        return self.stats["Heavy Attack"] * (0.5 if self.org <= 0 else 1.0)
+        return self.stats["hg_attack"] * (0.5 if self.org <= 0 else 1.0)
 
 class Fleet:
     def __init__(self, composition, ship_templates):
@@ -43,9 +43,9 @@ class Fleet:
         return not any(ship.is_alive() for ship in self.ships)
 
 # === Combat Mechanics ===
-def calculate_damage_reduction(armor, piercing):
-    """Calculate damage reduction based on armor and piercing."""
-    return 90 * (1 - (piercing / armor)) if armor > piercing else 0
+def calculate_damage_reduction(armor, hg_armor_piercing):
+    """Calculate damage reduction based on armor and hg_armor_piercing."""
+    return 90 * (1 - (hg_armor_piercing / armor)) if armor > hg_armor_piercing else 0
 
 def calculate_hp_org_loss(damage, current_hp, current_org, max_hp):
     """Calculate HP and ORG loss with scaling."""
@@ -58,9 +58,9 @@ def calculate_hit_chance(attacker_speed, target_speed):
     """Calculate hit chance based on speed difference."""
     return min(1.0, max(0.5, 0.8 + (attacker_speed - target_speed) / 100))
 
-def calculate_critical_hit(piercing, armor):
-    """Calculate critical hit multiplier if piercing significantly exceeds armor."""
-    return 1.5 if piercing > 1.5 * armor else 1.0
+def calculate_critical_hit(hg_armor_piercing, armor):
+    """Calculate critical hit multiplier if hg_armor_piercing significantly exceeds armor."""
+    return 1.5 if hg_armor_piercing > 1.5 * armor else 1.0
 
 # === Targeting Logic ===
 def target_enemy(enemy_fleet):
@@ -108,10 +108,10 @@ class CombatSimulator:
                     # Apply hit chance and critical hit
                     if random.random() < calculate_hit_chance(ship.stats["Speed"], target.stats["Speed"]):
                         damage = ship.get_effective_attack() * calculate_critical_hit(
-                            ship.stats["Piercing"], target.stats["Armor"]
+                            ship.stats["hg_armor_piercing"], target.stats["Armor"]
                         )
                         # Apply damage reduction
-                        damage *= (1 - calculate_damage_reduction(target.stats["Armor"], ship.stats["Piercing"]) / 100)
+                        damage *= (1 - calculate_damage_reduction(target.stats["Armor"], ship.stats["hg_armor_piercing"]) / 100)
                         target.take_damage(damage, target.stats["HP"])
 
             # Fleet 2 attacks
@@ -120,9 +120,9 @@ class CombatSimulator:
                 if target:
                     if random.random() < calculate_hit_chance(ship.stats["Speed"], target.stats["Speed"]):
                         damage = ship.get_effective_attack() * calculate_critical_hit(
-                            ship.stats["Piercing"], target.stats["Armor"]
+                            ship.stats["hg_armor_piercing"], target.stats["Armor"]
                         )
-                        damage *= (1 - calculate_damage_reduction(target.stats["Armor"], ship.stats["Piercing"]) / 100)
+                        damage *= (1 - calculate_damage_reduction(target.stats["Armor"], ship.stats["hg_armor_piercing"]) / 100)
                         target.take_damage(damage, target.stats["HP"])
 
             # Log the round
@@ -132,20 +132,42 @@ class CombatSimulator:
         return pd.DataFrame(self.battle_log, columns=self.generate_log_columns())
 
 # === Configuration Loader ===
-def load_ship_templates(ship_templates_path):
-    """Load ship templates from a JSON file."""
-    with open(ship_templates_path, "r") as f:
-        return json.load(f)
+def load_ship_templates(csv_path):
+    """
+    Load ship stats from CSV and allow lookup by both 'ship_id' and 'display_name'.
+    Returns a dict where keys are both IDs and names.
+    """
+    df = pd.read_csv(csv_path)
+    template_dict = {}
+    for _, row in df.iterrows():
+        stats = row.to_dict()
+        ship_id = stats["ship_id"]
+        name = str(stats.get("display_name", "") or "").strip()
+
+        # Normalize both keys
+        template_dict[ship_id] = stats
+        if name:
+            template_dict[name] = stats
+
+    return template_dict
+
 
 def load_config(config_path):
-    """Load fleet compositions and simulation parameters from a JSON config file."""
+    """Load fleet compositions and simulation parameters from JSON."""
     with open(config_path, "r") as f:
-        return json.load(f)
+        data = json.load(f)
+    
+    return {
+        "fleet1": {ship: data["fleet1"].count(ship) for ship in set(data["fleet1"])},
+        "fleet2": {ship: data["fleet2"].count(ship) for ship in set(data["fleet2"])},
+        "max_rounds": data.get("max_rounds", 20)
+    }
+
 
 # === Main Execution ===
 if __name__ == "__main__":
-    # Load ship templates and config
-    ship_templates = load_ship_templates("ships.json")
+    # Load ship stats from CSV and fleet config from JSON
+    ship_templates = load_ship_templates("hoi4_ship_stats_output.csv")
     config = load_config("config.json")
 
     # Create fleets
