@@ -18,7 +18,7 @@ How to use
 
 Todo 
 ```
-1. Generate the default ship stats for all major nations
+~1. Generate the default ship stats for all major nations~
 2. Have config.json be able to reference the ships by name and pull stats from the shipstats.csv
 3. Generate a simulation summary
 4. Convert to javascript and have it run in the browser

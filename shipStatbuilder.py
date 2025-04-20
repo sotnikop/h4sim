@@ -74,18 +74,42 @@ def calculate_ship_stats(ship_name, ship_data, module_data):
     final_stats['ship_name'] = ship_name
     return final_stats
 
-
 # === RUN ===
-modules = extract_module_stats(parse_modules("shipdata\jap_ship_modules.txt"))
-ships = parse_ships("shipdata\ship_hull_heavy.txt")
+module_files = [
+        "shipdata\\eng_ship_modules.txt",
+        "shipdata\\jap_ship_modules.txt",
+        "shipdata\\fra_ship_modules.txt",
+        "shipdata\\ger_ship_modules.txt",
+        "shipdata\\ita_ship_modules.txt",
+        "shipdata\\sov_ship_modules.txt",
+        "shipdata\\usa_ship_modules.txt",
+
+    # Add more as needed
+]
+all_modules = {}
+for path in module_files:
+    modules = extract_module_stats(parse_modules(path))
+    all_modules.update(modules)
+modules = all_modules
+
+ship_files = [
+    "shipdata\\ship_hull_heavy.txt",
+    "shipdata\\ship_hull_light.txt",
+    "shipdata\\ship_hull_carrier.txt",
+    "shipdata\\ship_hull_very_light.txt",
+    "shipdata\\ship_hull_heavy_cruiser.txt",
+]
 
 results = []
-for name, pair in ships.items():
-    if isinstance(pair, list) and len(pair) == 2 and isinstance(pair[1], dict):
-        data = pair[1]
-        if 'default_modules' in data and 'manpower' in data:
-            result = calculate_ship_stats(name, data, modules)
-            results.append(result)
+for ship_file in ship_files:
+    ships = parse_ships(ship_file)
+    for name, pair in ships.items():
+        if isinstance(pair, list) and len(pair) == 2 and isinstance(pair[1], dict):
+            data = pair[1]
+            if 'default_modules' in data and 'manpower' in data:
+                result = calculate_ship_stats(name, data, modules)
+                results.append(result)
+
 
 df = pd.DataFrame(results)
 df.to_csv("hoi4_ship_stats_output.csv", index=False)

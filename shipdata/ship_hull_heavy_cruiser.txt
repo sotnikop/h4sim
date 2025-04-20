@@ -1,0 +1,6720 @@
+equipments = {
+
+	ship_hull_heavy_cruiser = {
+		year = 1922
+
+		is_archetype = yes
+		is_buildable = no
+		type = capital_ship
+		interface_category = interface_category_screen_ships
+		alias = heavy_cruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery ship_medium_battery}
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = yes
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { cruiser_ship_engine }
+			}
+			fixed_ship_secondaries_slot = {
+				required = no
+				allowed_module_categories = { ship_secondaries }
+			}
+			fixed_ship_armor_slot = {
+				required = no
+				allowed_module_categories = { ship_cruiser_armor }
+			}
+			mid_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_side_torpedo
+					ship_anti_air
+					ship_light_battery
+					ship_medium_battery
+					ship_secondaries
+					ship_airplane_launcher
+					ship_mine_layer
+				}
+			}
+			mid_2_custom_slot = mid_1_custom_slot
+			rear_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air
+					ship_light_battery
+					ship_medium_battery
+					ship_airplane_launcher
+					ship_mine_layer
+					ship_depth_charge
+				}
+			}
+		}
+
+		module_count_limit = {
+			category = ship_radar
+			count < 2
+		}
+
+		default_modules = {
+			fixed_ship_battery_slot = empty
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+
+		lg_armor_piercing = 0
+		lg_attack = 0
+
+		hg_armor_piercing = 0
+		hg_attack = 0
+
+		torpedo_attack = 0
+		sub_attack = 0
+
+		anti_air_attack = 0
+
+		armor_value = 0
+
+
+		surface_detection = 20
+		sub_detection = 1
+		surface_visibility = 24
+		naval_speed = 20
+		reliability = 0.80
+
+		naval_range = 2500
+
+		max_strength = 100
+
+
+		fuel_consumption = 20
+
+		build_cost_ic = 1800
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+
+		manpower = 600
+		naval_supremacy_factor = 2
+	}
+
+################################################################################################################# OLD NAVY
+
+	heavy_cruiser_1 = {
+		year = 1922
+		visual_level = 0
+		type = capital_ship
+		archetype = ship_hull_heavy_cruiser
+		priority = 1800
+		upgrades = {
+			ship_reliability_upgrade
+			ship_engine_upgrade
+			ship_armor_upgrade
+			ship_gun_upgrade
+		}
+
+		module_slots = {
+			fixed_ship_battery_slot = inherit
+			fixed_ship_anti_air_slot = inherit
+			fixed_ship_fire_control_system_slot = inherit
+			fixed_ship_radar_slot = inherit
+			fixed_ship_engine_slot = inherit
+			fixed_ship_secondaries_slot = inherit
+			fixed_ship_armor_slot = inherit
+			front_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_side_torpedo
+					ship_anti_air
+				}
+			}
+
+			mid_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_side_torpedo
+					ship_anti_air
+					ship_light_battery
+					ship_medium_battery
+					ship_secondaries
+					ship_airplane_launcher
+				}
+			}
+			mid_2_custom_slot = mid_1_custom_slot
+			rear_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_mine_layer
+					ship_anti_air
+					ship_airplane_launcher
+					ship_side_torpedo
+					ship_light_battery
+					ship_medium_battery
+				}
+			}
+			rear_2_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_mine_layer
+					ship_anti_air
+					ship_airplane_launcher
+					ship_depth_charge
+					ship_light_battery
+					ship_medium_battery
+				}
+			}
+		}
+		default_modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = ship_secondaries_1
+			mid_2_custom_slot = ship_anti_air_3
+			rear_1_custom_slot = ship_medium_battery_1
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+
+		hg_armor_piercing = 0
+		hg_attack = 0
+
+		torpedo_attack = 0
+
+		anti_air_attack = 0
+
+		armor_value = 9
+
+
+		surface_detection = 12
+		sub_detection = 5
+		surface_visibility = 15
+		naval_speed = 24
+		reliability = 0.80
+
+		naval_range = 3000
+
+		max_strength = 150
+
+
+		fuel_consumption = 33
+
+		build_cost_ic = 2200
+		resources = {
+			#oil = 1
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+
+		manpower = 1500
+	}
+
+	heavy_cruiser_2 = {
+		year = 1936
+		visual_level = 1
+		archetype = ship_hull_heavy_cruiser
+		priority = 1800
+		parent = heavy_cruiser_1
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_battery_slot = ship_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = ship_secondaries_2
+			mid_2_custom_slot = ship_anti_air_3
+			rear_1_custom_slot = ship_medium_battery_2
+		}
+		hg_armor_piercing = 0
+		hg_attack = 0
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 0
+
+		anti_air_attack = 0
+
+		armor_value = 11
+
+
+		surface_detection = 15
+		sub_detection = 5
+		surface_visibility = 15
+		naval_speed = 30
+		reliability = 0.85
+
+		naval_range = 4000
+
+		max_strength = 175
+
+
+
+		build_cost_ic = 2600
+		resources = {
+			#oil = 1
+			steel = 10
+			#iron = 1
+			coal = 7
+		}
+		manpower = 1700
+	}
+
+	heavy_cruiser_3 = {
+		year = 1940
+		visual_level = 1
+		archetype = ship_hull_heavy_cruiser
+		priority = 1800
+		parent = heavy_cruiser_2
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_battery_slot = ship_medium_battery_3
+			fixed_ship_anti_air_slot = ship_anti_air_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = ship_secondaries_2
+			mid_2_custom_slot = ship_anti_air_4
+			rear_1_custom_slot = ship_medium_battery_3
+			rear_2_custom_slot = ship_anti_air_4
+		}
+		hg_armor_piercing = 0
+		hg_attack = 0
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 0
+
+		anti_air_attack = 0
+
+		armor_value = 12
+
+
+		surface_detection = 25
+		sub_detection = 5
+		surface_visibility = 15
+		naval_speed = 33
+		reliability = 0.90
+
+		naval_range = 4500
+
+		max_strength = 200
+
+
+
+		build_cost_ic = 3000
+		resources = {
+			#oil = 2
+			steel = 10
+			#iron = 1
+			coal = 7
+		}
+		manpower = 1900
+	}
+
+	heavy_cruiser_4 = {
+		year = 1944
+		visual_level = 1
+		archetype = ship_hull_heavy_cruiser
+		priority = 1800
+		parent = heavy_cruiser_3
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_battery_slot = ship_medium_battery_4
+			fixed_ship_anti_air_slot = ship_anti_air_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			front_1_custom_slot = ship_anti_air_4
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = dp_ship_secondaries
+			mid_2_custom_slot = dp_ship_secondaries
+			rear_1_custom_slot = ship_medium_battery_4
+			rear_2_custom_slot = ship_anti_air_4
+		}
+		hg_armor_piercing = 0
+		hg_attack = 0
+		torpedo_attack = 0
+		lg_armor_piercing = 0
+		lg_attack = 0
+
+		anti_air_attack = 0
+
+		armor_value = 13
+
+
+		surface_detection = 40
+		sub_detection = 5
+		surface_visibility = 15
+		naval_speed = 33
+		reliability = 0.92
+
+		naval_range = 5000
+
+		max_strength = 225
+
+
+
+		build_cost_ic = 3400
+		resources = {
+			#oil = 2
+			steel = 12
+			chromium = 1
+			#iron = 1
+			coal = 7
+		}
+		manpower = 2200
+	}
+
+	###special snowflake hulls
+	ship_hull_cruiser_panzerschiff = {
+		year = 1929
+		visual_level = 0
+		archetype = ship_hull_heavy_cruiser
+		priority = 1850
+		manpower = 1800
+		build_cost_ic = 3500
+		naval_speed = 20
+		surface_visibility = 22
+		naval_range = 7500
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_heavy_battery }
+			}
+			fixed_ship_anti_air_slot = inherit
+			fixed_ship_fire_control_system_slot = inherit
+			fixed_ship_radar_slot = inherit
+			fixed_ship_engine_slot = inherit
+			fixed_ship_secondaries_slot = inherit
+			fixed_ship_armor_slot = inherit
+			front_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air
+				}
+			}
+
+			mid_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air
+					ship_secondaries
+					ship_airplane_launcher
+				}
+			}
+			mid_2_custom_slot = mid_1_custom_slot
+			rear_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_mine_layer
+					ship_anti_air
+					ship_airplane_launcher
+					ship_side_torpedo
+				}
+			}
+		}
+
+		default_modules = {
+			front_1_custom_slot = ship_anti_air_1
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			rear_1_custom_slot = ship_side_torpedo
+		}
+	}
+	ship_hull_cruiser_coastal_defense_ship = {
+		year = 1929
+		visual_level = 0
+		archetype = ship_hull_heavy_cruiser
+		priority = 1850
+
+		manpower = 1800
+		build_cost_ic = 3500
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+
+		hg_attack = 0
+		naval_speed = 15
+		reliability = 0.80
+		surface_visibility = 20
+		naval_range = 1500
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_heavy_battery ship_medium_battery }
+			}
+			fixed_ship_anti_air_slot = inherit
+			fixed_ship_fire_control_system_slot = inherit
+			fixed_ship_radar_slot = inherit
+			fixed_ship_engine_slot = inherit
+			fixed_ship_secondaries_slot = inherit
+			fixed_ship_armor_slot = inherit
+			front_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air
+				}
+			}
+
+			mid_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air
+					ship_secondaries
+					ship_airplane_launcher
+				}
+			}
+			mid_2_custom_slot = mid_1_custom_slot
+			rear_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air
+					ship_airplane_launcher
+					ship_side_torpedo
+					ship_medium_battery
+				}
+			}
+		}
+
+		default_modules = {
+			front_1_custom_slot = empty
+			rear_1_custom_slot = empty
+			fixed_ship_battery_slot = empty
+			fixed_ship_secondaries_slot = empty
+		}
+	}
+
+################################################################################################################# CL GENERIC
+
+	generic_heavy_cruiser_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+					ship_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = generic_medium_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_40
+			ship_battery_slot_1 = generic_ship_medium_battery_1_x3
+			ship_battery_slot_2 = generic_ship_medium_battery_1_x2
+			ship_battery_slot_3 = generic_ship_medium_battery_1_x2
+			ship_secondaries_slot_1 = generic_ship_light_secondaries_1_2x1
+			ship_secondaries_slot_2 = generic_ship_light_secondaries_1_2x1
+			ship_secondaries_slot_3 = generic_ship_light_secondaries_1_2x1
+			ship_anti_air_slot_1 = generic_ship_anti_air_1_10x1
+			ship_anti_air_slot_2 = generic_ship_anti_air_1_2x2
+			ship_anti_air_slot_3 = generic_ship_anti_air_1_2x2
+		}
+
+		manpower = 750
+		naval_speed = 30.1
+		naval_range = 5000
+		reliability = 0.65
+
+		max_strength = 170
+		build_cost_ic = 1730
+
+		fuel_consumption = 20
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	generic_heavy_cruiser_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = generic_medium_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_120_60
+			ship_battery_slot_1 = generic_ship_medium_battery_2_x3
+			ship_battery_slot_2 = generic_ship_medium_battery_2_x3
+			ship_battery_slot_3 = generic_ship_medium_battery_2_x2
+			ship_secondaries_slot_1 = generic_ship_light_secondaries_2_2x1
+			ship_secondaries_slot_2 = generic_ship_light_secondaries_2_2x1
+			ship_secondaries_slot_3 = generic_ship_light_secondaries_2_2x1
+			ship_secondaries_slot_4 = generic_ship_light_secondaries_2_2x1
+			ship_anti_air_slot_1 = generic_ship_anti_air_2_10x1
+			ship_anti_air_slot_2 = generic_ship_large_anti_air_3_2x2
+			ship_anti_air_slot_3 = generic_ship_large_anti_air_3_2x2
+			ship_anti_air_slot_4 = generic_ship_large_anti_air_3_2x2
+			ship_anti_air_slot_5 = generic_ship_large_anti_air_3_2x2
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 800
+		naval_speed = 33.0
+		naval_range = 7500
+		reliability = 0.75
+
+		max_strength = 260
+		build_cost_ic = 2740
+
+		fuel_consumption = 30
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	generic_heavy_cruiser_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+					ship_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+					ship_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+					ship_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+					ship_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+					ship_anti_air_quad
+					ship_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+					ship_anti_air_quad
+					ship_large_anti_air_quad
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = generic_medium_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_80
+			ship_battery_slot_1 = generic_ship_medium_battery_2_x3
+			ship_battery_slot_2 = generic_ship_medium_battery_2_x3
+			ship_battery_slot_3 = generic_ship_medium_battery_2_x3
+			ship_secondaries_slot_1 = generic_ship_light_secondaries_4_2x2
+			ship_secondaries_slot_2 = generic_ship_light_secondaries_4_2x2
+			ship_secondaries_slot_3 = generic_ship_light_secondaries_4_2x2
+			ship_secondaries_slot_4 = generic_ship_light_secondaries_4_2x2
+			ship_anti_air_slot_1 = generic_ship_anti_air_2_10x1
+			ship_anti_air_slot_2 = generic_ship_anti_air_2_2x4
+			ship_anti_air_slot_3 = generic_ship_anti_air_2_2x4
+			ship_anti_air_slot_4 = generic_ship_anti_air_2_2x4
+			ship_anti_air_slot_5 = generic_ship_large_anti_air_3_2x4
+			ship_anti_air_slot_6 = generic_ship_large_anti_air_3_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 1000
+		naval_speed = 37.2
+		naval_range = 9000
+		reliability = 0.80
+
+		max_strength = 310
+		build_cost_ic = 3460
+
+		fuel_consumption = 36
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CA FRA France
+
+	fra_heavy_cruiser_hull_1 = { #Duquesne
+		year = 1920
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = fra_medium_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_50_30
+			ship_battery_slot_1 = fra_ship_medium_battery_1_x2
+			ship_battery_slot_2 = fra_ship_medium_battery_1_x2
+			ship_battery_slot_3 = fra_ship_medium_battery_1_x2
+			ship_battery_slot_4 = fra_ship_medium_battery_1_x2
+			ship_secondaries_slot_1 = fra_ship_light_secondaries_1_4x1
+			ship_secondaries_slot_2 = fra_ship_light_secondaries_1_4x1
+			ship_anti_air_slot_1 = fra_ship_large_anti_air_4_4x2
+			torpedo_slot_1 = fra_ship_side_torpedo_1_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 605
+		naval_speed = 34.0
+		naval_range = 4150
+		reliability = 0.65
+
+		max_strength = 210
+		build_cost_ic = 4590
+
+		fuel_consumption = 24
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	fra_ghost_heavy_cruiser_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = fra_heavy_cruiser_hull_1
+	}
+
+	fra_heavy_cruiser_hull_2 = { #Suffren
+		year = 1920
+
+		archetype = ship_hull_heavy_cruiser
+		parent = fra_ghost_heavy_cruiser_hull_1
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = fra_medium_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_60
+			ship_battery_slot_1 = fra_ship_medium_battery_1_x2
+			ship_battery_slot_2 = fra_ship_medium_battery_1_x2
+			ship_battery_slot_3 = fra_ship_medium_battery_1_x2
+			ship_battery_slot_4 = fra_ship_medium_battery_1_x2
+			ship_secondaries_slot_1 = fra_ship_light_secondaries_2_4x1
+			ship_secondaries_slot_2 = fra_ship_light_secondaries_2_4x1
+			ship_anti_air_slot_1 = fra_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_2 = fra_ship_anti_air_1_4x4
+			torpedo_slot_1 = fra_ship_side_torpedo_1_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 752
+		naval_speed = 32.0
+		naval_range = 4150
+		reliability = 0.70
+
+		max_strength = 220
+		build_cost_ic = 4740
+
+		fuel_consumption = 26
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	fra_ghost_heavy_cruiser_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = fra_heavy_cruiser_hull_2
+	}
+
+	fra_heavy_cruiser_hull_3 = { #Algerie
+		year = 1920
+
+		archetype = ship_hull_heavy_cruiser
+		parent = fra_ghost_heavy_cruiser_hull_2
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = fra_semi_large_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_115
+			ship_battery_slot_1 = fra_ship_medium_battery_2_x2
+			ship_battery_slot_2 = fra_ship_medium_battery_2_x2
+			ship_battery_slot_3 = fra_ship_medium_battery_2_x2
+			ship_battery_slot_4 = fra_ship_medium_battery_2_x2
+			ship_secondaries_slot_1 = fra_ship_light_secondaries_4_6x2
+			ship_anti_air_slot_1 = fra_ship_anti_air_1_10x1
+			ship_anti_air_slot_2 = fra_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_3 = fra_ship_anti_air_1_4x4
+			torpedo_slot_1 = fra_ship_side_torpedo_1_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 748
+		naval_speed = 31.0
+		naval_range = 8055
+		reliability = 0.70
+
+		max_strength = 230
+		build_cost_ic = 4800
+
+		fuel_consumption = 27
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	fra_ghost_heavy_cruiser_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = fra_heavy_cruiser_hull_3
+	}
+
+	fra_heavy_cruiser_hull_4 = { #Saint-Louis
+		year = 1920
+
+		archetype = ship_hull_heavy_cruiser
+		parent = fra_ghost_heavy_cruiser_hull_3
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = fra_semi_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_armor_slot = ship_armor_150_120
+			ship_battery_slot_1 = fra_ship_medium_battery_3_x3
+			ship_battery_slot_2 = fra_ship_medium_battery_3_x3
+			ship_battery_slot_3 = fra_ship_medium_battery_3_x3
+			ship_battery_slot_4 = fra_ship_light_battery_4_x2
+			ship_secondaries_slot_1 = fra_ship_light_secondaries_4_6x2
+			ship_anti_air_slot_1 = fra_ship_anti_air_1_20x1
+			ship_anti_air_slot_2 = fra_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_3 = fra_ship_large_anti_air_4_6x2
+			torpedo_slot_1 = fra_ship_side_torpedo_1_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+			airplane_catapult_slot_2 = ship_airplane_launcher_2
+		}
+
+		manpower = 760
+		naval_speed = 33.0
+		naval_range = 7800
+		reliability = 0.75
+
+		max_strength = 180
+		build_cost_ic = 4170
+
+		fuel_consumption = 21
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CA ITA Italy
+
+	ita_heavy_cruiser_hull_1 = { #San Giorgio
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_heavy_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_heavy_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+					ship_2_medium_secondaries_single
+					ship_2_medium_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+				}
+			}
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_very_small_torpedo_launcher_side
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ita_medium_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_200_50
+			ship_battery_slot_1 = ita_ship_semi_heavy_battery_1_x2
+			ship_battery_slot_2 = ita_ship_semi_heavy_battery_1_x2
+			ship_secondaries_slot_1 = ita_ship_medium_secondaries_1_4x2
+			ship_secondaries_slot_2 = ita_ship_light_casemate_secondaries_2_6x1
+			ship_secondaries_slot_3 = ita_ship_light_casemate_secondaries_2_4x1
+			ship_secondaries_slot_4 = ita_ship_light_secondaries_2_4x1
+			ship_secondaries_slot_5 = ita_ship_light_secondaries_2_4x1
+			ship_anti_air_slot_1 = empty
+			torpedo_slot_1 = ita_ship_side_torpedo_3_2x1
+			torpedo_slot_2 = ita_ship_side_torpedo_3_1x1
+		}
+
+		manpower = 670
+		naval_speed = 23.0
+		naval_range = 5800
+		reliability = 0.60
+
+		max_strength = 190
+		build_cost_ic = 3750
+
+		fuel_consumption = 22
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ita_ghost_heavy_cruiser_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = ita_heavy_cruiser_hull_1
+	}
+
+	ita_heavy_cruiser_hull_2 = { #Trento
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = ita_ghost_heavy_cruiser_hull_1
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+				}
+			}
+
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ita_medium_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_70_50
+			ship_battery_slot_1 = ita_ship_medium_battery_2_x2
+			ship_battery_slot_2 = ita_ship_medium_battery_2_x2
+			ship_battery_slot_3 = ita_ship_medium_battery_2_x2
+			ship_battery_slot_4 = ita_ship_medium_battery_2_x2
+			ship_secondaries_slot_1 = ita_ship_light_secondaries_6_6x2
+			ship_anti_air_slot_1 = ita_ship_anti_air_2_4x2
+			ship_anti_air_slot_2 = empty
+			ship_anti_air_slot_3 = ita_ship_large_anti_air_3_4x2
+			torpedo_slot_1 = ita_ship_side_torpedo_3_2x2
+			torpedo_slot_2 = ita_ship_side_torpedo_3_2x2
+		}
+
+		manpower = 780
+		naval_speed = 35.0
+		naval_range = 7700
+		reliability = 0.65
+
+		max_strength = 230
+		build_cost_ic = 4920
+
+		fuel_consumption = 27
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ita_ghost_heavy_cruiser_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = ita_heavy_cruiser_hull_2
+	}
+
+	ita_heavy_cruiser_hull_3 = { #Zara
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = ita_ghost_heavy_cruiser_hull_2
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			#torpedo_slot_1 = {
+			#	required = no
+			#	allowed_module_categories = {
+			#		ship_2_very_small_torpedo_launcher_side
+			#		ship_2_small_torpedo_launcher_side
+			#		ship_2_medium_torpedo_launcher_side
+			#	}
+			#}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ita_medium_ship_engine_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_70
+			ship_battery_slot_1 = ita_ship_medium_battery_3_x2
+			ship_battery_slot_2 = ita_ship_medium_battery_3_x2
+			ship_battery_slot_3 = ita_ship_medium_battery_3_x2
+			ship_battery_slot_4 = ita_ship_medium_battery_3_x2
+			ship_secondaries_slot_1 = ita_ship_light_secondaries_6_6x2
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = ita_ship_anti_air_2_4x2
+			ship_anti_air_slot_3 = ita_ship_large_anti_air_3_6x2
+			#torpedo_slot_1 = ita_ship_side_torpedo_1_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 840
+		naval_speed = 32.0
+		naval_range = 10000
+		reliability = 0.70
+
+		max_strength = 250
+		build_cost_ic = 4920
+
+		fuel_consumption = 29
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ita_ghost_heavy_cruiser_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = ita_heavy_cruiser_hull_3
+	}
+
+	ita_heavy_cruiser_hull_4 = { #Bolzano
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = ita_ghost_heavy_cruiser_hull_3
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single
+					ship_2_large_anti_air_single
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ita_medium_ship_engine_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_70
+			ship_battery_slot_1 = ita_ship_medium_battery_3_x2
+			ship_battery_slot_2 = ita_ship_medium_battery_3_x2
+			ship_battery_slot_3 = ita_ship_medium_battery_3_x2
+			ship_battery_slot_4 = ita_ship_medium_battery_3_x2
+			ship_secondaries_slot_1 = ita_ship_light_secondaries_6_4x2
+			ship_secondaries_slot_2 = ita_ship_light_secondaries_6_4x2
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = ita_ship_large_anti_air_3_4x1
+			ship_anti_air_slot_3 = ita_ship_anti_air_1_4x2
+			torpedo_slot_1 = ita_ship_side_torpedo_3_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 725
+		naval_speed = 36.0
+		naval_range = 10000
+		reliability = 0.70
+
+		max_strength = 240
+		build_cost_ic = 4980
+
+		fuel_consumption = 28
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ita_ghost_heavy_cruiser_hull_4 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = ita_heavy_cruiser_hull_4
+	}
+
+	ita_heavy_cruiser_hull_5 = { #Amalfi
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = ita_ghost_heavy_cruiser_hull_4
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ita_medium_ship_engine_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_armor_slot = ship_armor_150_140
+			ship_battery_slot_1 = ita_ship_medium_battery_3_x3
+			ship_battery_slot_2 = ita_ship_medium_battery_3_x3
+			ship_battery_slot_3 = ita_ship_medium_battery_3_x3
+			ship_secondaries_slot_1 = ita_ship_light_secondaries_3_6x1
+			ship_secondaries_slot_2 = ita_ship_light_secondaries_3_6x1
+			ship_anti_air_slot_1 = ita_ship_anti_air_2_6x2
+			ship_anti_air_slot_2 = ita_ship_anti_air_2_6x2
+			ship_anti_air_slot_3 = ita_ship_large_anti_air_3_4x2
+			ship_anti_air_slot_4 = ita_ship_large_anti_air_3_4x2
+			torpedo_slot_1 = ita_ship_side_torpedo_3_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+		}
+
+		manpower = 1010
+		naval_speed = 36.6
+		naval_range = 9600
+		reliability = 0.75
+
+		max_strength = 290
+		build_cost_ic = 5520
+
+		fuel_consumption = 34
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ita_ghost_heavy_cruiser_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = ita_heavy_cruiser_hull_5
+	}
+
+	ita_heavy_cruiser_hull_6 = { #Venezia
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = ita_ghost_heavy_cruiser_hull_5
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ita_large_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_200_140
+			ship_battery_slot_1 = ita_ship_medium_battery_3_x3
+			ship_battery_slot_2 = ita_ship_medium_battery_3_x3
+			ship_battery_slot_3 = ita_ship_medium_battery_3_x3
+			ship_battery_slot_4 = ita_ship_medium_battery_3_x3
+			ship_battery_slot_5 = ita_ship_medium_battery_3_x3
+			ship_secondaries_slot_1 = ita_ship_light_secondaries_3_6x2
+			ship_secondaries_slot_2 = ita_ship_light_secondaries_3_6x2
+			ship_anti_air_slot_1 = ita_ship_large_anti_air_3_6x4
+			ship_anti_air_slot_2 = ita_ship_large_anti_air_3_4x4
+			ship_anti_air_slot_3 = ita_ship_large_anti_air_3_4x2
+			ship_anti_air_slot_4 = ita_ship_large_anti_air_3_4x2
+			torpedo_slot_1 = ita_ship_side_torpedo_3_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+		}
+
+		manpower = 1480
+		naval_speed = 37.0
+		naval_range = 9600
+		reliability = 0.80
+
+		max_strength = 380
+		build_cost_ic = 6690
+
+		fuel_consumption = 45
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CA JAP Japan
+
+	jap_heavy_cruiser_hull_1 = { #Izumo
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_casemate_secondaries_single
+					ship_3_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_casemate_secondaries_single
+					ship_3_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_casemate_secondaries_single
+					ship_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_60
+			ship_battery_slot_1 = jap_ship_medium_battery_1_x2
+			ship_battery_slot_2 = jap_ship_medium_battery_1_x2
+			ship_secondaries_slot_1 = jap_ship_semi_medium_casemate_secondaries_11_6x1
+			ship_secondaries_slot_2 = jap_ship_semi_medium_casemate_secondaries_11_6x1
+			ship_secondaries_slot_3 = jap_ship_semi_medium_casemate_secondaries_11_2x1
+			ship_secondaries_slot_4 = jap_ship_light_secondaries_1_4x1
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_10x1
+		}
+
+		manpower = 625
+		naval_speed = 23.5
+		naval_range = 5500
+		reliability = 0.65
+
+		max_strength = 160
+		build_cost_ic = 3360
+
+		fuel_consumption = 19
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_heavy_cruiser_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = jap_heavy_cruiser_hull_1
+	}
+
+	jap_heavy_cruiser_hull_2 = { #Furutaka
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = jap_ghost_heavy_cruiser_hull_1
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_6 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_35
+			ship_battery_slot_1 = jap_ship_medium_battery_2_x1
+			ship_battery_slot_2 = jap_ship_medium_battery_2_x1
+			ship_battery_slot_3 = jap_ship_medium_battery_2_x1
+			ship_battery_slot_4 = jap_ship_medium_battery_2_x1
+			ship_battery_slot_5 = jap_ship_medium_battery_2_x1
+			ship_battery_slot_6 = jap_ship_medium_battery_2_x1
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_1_4x1
+			ship_anti_air_slot_1 = empty
+			torpedo_slot_1 = jap_ship_side_torpedo_3_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 672
+		naval_speed = 34.5
+		naval_range = 6500
+		reliability = 0.65
+
+		max_strength = 160
+		build_cost_ic = 3990
+
+		fuel_consumption = 19
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_heavy_cruiser_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = jap_heavy_cruiser_hull_2
+	}
+
+	jap_heavy_cruiser_hull_3 = { #Aoba
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = jap_ghost_heavy_cruiser_hull_2
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_35
+			ship_battery_slot_1 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_2 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_3 = jap_ship_medium_battery_2_x2
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_7_4x1
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = empty
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_4x2
+			ship_anti_air_slot_4 = empty
+			ship_anti_air_slot_5 = empty
+			torpedo_slot_1 = jap_ship_side_torpedo_3_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 625
+		naval_speed = 34.0
+		naval_range = 5500
+		reliability = 0.65
+
+		max_strength = 150
+		build_cost_ic = 3870
+
+		fuel_consumption = 18
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_heavy_cruiser_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = jap_heavy_cruiser_hull_3
+	}
+
+	jap_heavy_cruiser_hull_4 = { #Myoko
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = jap_ghost_heavy_cruiser_hull_3
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_6
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_100_35
+			ship_battery_slot_1 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_2 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_3 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_4 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_5 = jap_ship_medium_battery_2_x2
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = jap_ship_3_anti_air_1_10x1
+			ship_anti_air_slot_2 = jap_ship_anti_air_2_4x2
+			ship_anti_air_slot_3 = empty
+			ship_anti_air_slot_4 = empty
+			torpedo_slot_1 = jap_ship_side_torpedo_3_2x3
+			torpedo_slot_2 = empty
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 770
+		naval_speed = 35.5
+		naval_range = 7500
+		reliability = 0.65
+
+		max_strength = 260
+		build_cost_ic = 5370
+
+		fuel_consumption = 31
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_heavy_cruiser_hull_4 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = jap_heavy_cruiser_hull_4
+	}
+
+	jap_heavy_cruiser_hull_5 = { #Takao
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = jap_ghost_heavy_cruiser_hull_4
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_6
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_100_35
+			ship_battery_slot_1 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_2 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_3 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_4 = jap_ship_medium_battery_2_x2
+			ship_battery_slot_5 = jap_ship_medium_battery_2_x2
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_7_4x1
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = jap_ship_3_anti_air_3_2x2
+			ship_anti_air_slot_3 = empty
+			torpedo_slot_1 = jap_ship_side_torpedo_3_2x4
+			torpedo_slot_2 = empty
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 770
+		naval_speed = 34.8
+		naval_range = 7850
+		reliability = 0.65
+
+		max_strength = 260
+		build_cost_ic = 5340
+
+		fuel_consumption = 31
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_heavy_cruiser_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = jap_heavy_cruiser_hull_5
+	}
+
+	jap_heavy_cruiser_hull_6 = { #Mogami
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = jap_ghost_heavy_cruiser_hull_5
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_medium_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_medium_battery_triple
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_very_small_torpedo_launcher_side
+					ship_small_torpedo_launcher_side
+					ship_medium_torpedo_launcher_side
+					ship_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_7
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_100_35
+			ship_battery_slot_1 = jap_ship_semi_medium_battery_12_x3
+			ship_battery_slot_2 = jap_ship_semi_medium_battery_12_x3
+			ship_battery_slot_3 = jap_ship_semi_medium_battery_12_x3
+			ship_battery_slot_4 = jap_ship_semi_medium_battery_12_x3
+			ship_battery_slot_5 = jap_ship_semi_medium_battery_12_x3
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = jap_ship_3_anti_air_3_4x2
+			ship_anti_air_slot_3 = empty
+			torpedo_slot_1 = jap_ship_side_torpedo_3_2x4
+			torpedo_slot_2 = jap_ship_side_torpedo_3_1x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 850
+		naval_speed = 37.0
+		naval_range = 7500
+		reliability = 0.70
+
+		max_strength = 230
+		build_cost_ic = 5010
+
+		fuel_consumption = 27
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_heavy_cruiser_hull_6 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = jap_heavy_cruiser_hull_6
+	}
+
+	jap_heavy_cruiser_hull_7 = { #Tone
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = jap_ghost_heavy_cruiser_hull_6
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_very_small_torpedo_launcher_side
+					ship_small_torpedo_launcher_side
+					ship_medium_torpedo_launcher_side
+					ship_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_5
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_65
+			ship_battery_slot_1 = jap_ship_medium_battery_3_x2
+			ship_battery_slot_2 = jap_ship_medium_battery_3_x2
+			ship_battery_slot_3 = jap_ship_medium_battery_3_x2
+			ship_battery_slot_4 = jap_ship_medium_battery_3_x2
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = empty
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_4x2
+			ship_anti_air_slot_4 = jap_ship_anti_air_3_2x2
+			torpedo_slot_1 = jap_ship_side_torpedo_4_2x4
+			torpedo_slot_2 = jap_ship_side_torpedo_4_1x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 874
+		naval_speed = 35.0
+		naval_range = 7500
+		reliability = 0.7
+
+		max_strength = 260
+		build_cost_ic = 5100
+
+		fuel_consumption = 30
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_heavy_cruiser_hull_7 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = jap_heavy_cruiser_hull_7
+	}
+
+	jap_heavy_cruiser_hull_8 = { #Ibuki
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = jap_ghost_heavy_cruiser_hull_7
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_10
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_140_60
+			ship_battery_slot_1 = jap_ship_medium_battery_3_x2
+			ship_battery_slot_2 = jap_ship_medium_battery_3_x2
+			ship_battery_slot_3 = jap_ship_medium_battery_3_x2
+			ship_battery_slot_4 = jap_ship_medium_battery_3_x2
+			ship_battery_slot_5 = jap_ship_medium_battery_3_x2
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_30x1
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_6x3
+			torpedo_slot_1 = jap_ship_side_torpedo_4_2x4
+			torpedo_slot_2 = jap_ship_side_torpedo_4_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+			airplane_catapult_slot_2 = ship_airplane_launcher_2
+		}
+
+		manpower = 876
+		naval_speed = 35.0
+		naval_range = 5850
+		reliability = 0.80
+
+		max_strength = 250
+		build_cost_ic = 5190
+
+		fuel_consumption = 30
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_heavy_cruiser_hull_8 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = jap_heavy_cruiser_hull_8
+	}
+
+	jap_heavy_cruiser_hull_9 = { #Zao
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = jap_ghost_heavy_cruiser_hull_8
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+					ship_2_very_large_torpedo_launcher_side
+				}
+			}
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+					ship_2_very_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_semi_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_140_80
+			ship_battery_slot_1 = jap_ship_medium_battery_4_x3
+			ship_battery_slot_2 = jap_ship_medium_battery_4_x3
+			ship_battery_slot_3 = jap_ship_medium_battery_4_x3
+			ship_battery_slot_4 = jap_ship_medium_battery_4_x3
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_3_6x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_20x1
+			ship_anti_air_slot_2 = jap_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_3 = jap_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_4 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_5 = jap_ship_anti_air_3_6x3
+			torpedo_slot_1 = jap_ship_side_torpedo_4_2x5
+			torpedo_slot_2 = jap_ship_side_torpedo_4_2x5
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+			airplane_catapult_slot_2 = ship_airplane_launcher_2
+		}
+
+		manpower = 1024
+		naval_speed = 34.5
+		naval_range = 6800
+		reliability = 0.85
+
+		max_strength = 270
+		build_cost_ic = 5370
+
+		fuel_consumption = 32
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CA GER Germany
+
+	ger_heavy_cruiser_hull_1 = { #Panzerschiffe
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_heavy_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+					ship_2_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+					ship_2_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_medium_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_45
+			ship_battery_slot_1 = ger_ship_heavy_battery_2_x3
+			ship_battery_slot_2 = ger_ship_heavy_battery_2_x3
+			ship_secondaries_slot_1 = ger_ship_semi_medium_secondaries_11_4x1
+			ship_secondaries_slot_2 = ger_ship_semi_medium_secondaries_11_4x1
+			ship_secondaries_slot_3 = ger_ship_light_secondaries_2_4x2
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = empty
+			torpedo_slot_1 = ger_ship_side_torpedo_1_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 1070
+		naval_speed = 28.5
+		naval_range = 9500
+		reliability = 0.70
+		surface_visibility = 20
+		max_strength = 240
+		build_cost_ic = 4950
+
+		fuel_consumption = 29
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ger_ghost_heavy_cruiser_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = ger_heavy_cruiser_hull_1
+	}
+
+	ger_heavy_cruiser_hull_2 = { #Admiral Hipper
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = ger_ghost_heavy_cruiser_hull_1
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_medium_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_semi_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_medium_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_140_80
+			ship_battery_slot_1 = ger_ship_medium_battery_1_x2
+			ship_battery_slot_2 = ger_ship_medium_battery_1_x2
+			ship_battery_slot_3 = ger_ship_medium_battery_1_x2
+			ship_battery_slot_4 = ger_ship_medium_battery_1_x2
+			ship_secondaries_slot_1 = ger_ship_light_secondaries_6_6x2
+			ship_anti_air_slot_1 = ger_ship_2_anti_air_1_10x1
+			ship_anti_air_slot_2 = ger_ship_large_anti_air_3_6x2
+			ship_anti_air_slot_3 = empty
+			torpedo_slot_1 = ger_ship_side_torpedo_1_2x3
+			torpedo_slot_2 = ger_ship_side_torpedo_1_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 1600
+		naval_speed = 32.0
+		naval_range = 6300
+		reliability = 0.70
+
+		max_strength = 310
+		build_cost_ic = 5820
+
+		fuel_consumption = 37
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ger_ghost_heavy_cruiser_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = ger_heavy_cruiser_hull_2
+	}
+
+	ger_heavy_cruiser_hull_3 = { #Roon
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = ger_ghost_heavy_cruiser_hull_2
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_semi_medium_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+					ship_2_medium_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_quad
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_semi_large_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_armor_slot = ship_armor_170_90
+			ship_battery_slot_1 = ger_ship_medium_battery_1_x3
+			ship_battery_slot_2 = ger_ship_medium_battery_1_x3
+			ship_battery_slot_3 = ger_ship_medium_battery_1_x3
+			ship_battery_slot_4 = ger_ship_semi_medium_battery_11_x2
+			ship_secondaries_slot_1 = ger_ship_light_secondaries_6_6x2
+			ship_secondaries_slot_2 = ger_ship_semi_medium_secondaries_12_4x1
+			ship_anti_air_slot_1 = ger_ship_anti_air_2_4x2
+			ship_anti_air_slot_2 = ger_ship_anti_air_2_4x2
+			ship_anti_air_slot_3 = ger_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_4 = ger_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_5 = ger_ship_anti_air_2_4x4
+			torpedo_slot_1 = ger_ship_side_torpedo_2_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+		}
+
+		manpower = 1800
+		naval_speed = 32.5
+		naval_range = 9000
+		reliability = 0.75
+
+		max_strength = 370
+		build_cost_ic = 6330
+
+		fuel_consumption = 43
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ger_ghost_heavy_cruiser_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = ger_heavy_cruiser_hull_3
+	}
+
+	ger_heavy_cruiser_hull_4 = { #Hindenburg
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = ger_ghost_heavy_cruiser_hull_3
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_quad
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			torpedo_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_semi_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_190_90
+			ship_battery_slot_1 = ger_ship_medium_battery_1_x3
+			ship_battery_slot_2 = ger_ship_medium_battery_1_x3
+			ship_battery_slot_3 = ger_ship_medium_battery_1_x3
+			ship_battery_slot_4 = ger_ship_medium_battery_1_x3
+			ship_secondaries_slot_1 = ger_ship_light_secondaries_6_4x2
+			ship_secondaries_slot_2 = ger_ship_light_secondaries_6_4x2
+			ship_anti_air_slot_1 = ger_ship_anti_air_2_4x2
+			ship_anti_air_slot_2 = ger_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_3 = ger_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_4 = ger_ship_anti_air_2_6x4
+			ship_anti_air_slot_5 = ger_ship_anti_air_2_6x4
+			ship_anti_air_slot_6 = ger_ship_anti_air_2_4x4
+			torpedo_slot_1 = ger_ship_side_torpedo_2_2x4
+			torpedo_slot_2 = ger_ship_side_torpedo_2_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+		}
+
+		manpower = 2000
+		naval_speed = 32.0
+		naval_range = 9500
+		reliability = 0.80
+
+		max_strength = 400
+		build_cost_ic = 6810
+
+		fuel_consumption = 48
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CA SOV Soviet Union
+
+	sov_heavy_cruiser_hull_1 = { #Kirov
+		year = 1920
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = sov_medium_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_50_65
+			ship_battery_slot_1 = sov_ship_medium_battery_1_x3
+			ship_battery_slot_2 = sov_ship_medium_battery_1_x3
+			ship_battery_slot_3 = sov_ship_medium_battery_1_x3
+			ship_secondaries_slot_1 = sov_ship_light_secondaries_6_6x1
+			ship_anti_air_slot_1 = sov_ship_anti_air_2_10x1
+			ship_anti_air_slot_2 = sov_ship_large_anti_air_7_6x2
+			torpedo_slot_1 = sov_ship_side_torpedo_2_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 872
+		naval_speed = 36.0
+		naval_range = 3500
+		reliability = 0.70
+
+		max_strength = 160
+		build_cost_ic = 4050
+
+		fuel_consumption = 19
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	sov_ghost_heavy_cruiser_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = sov_heavy_cruiser_hull_1
+	}
+
+	sov_heavy_cruiser_hull_2 = { #Moskva
+		year = 1920
+
+		archetype = ship_hull_heavy_cruiser
+		parent = sov_ghost_heavy_cruiser_hull_1
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+					ship_semi_medium_battery_single
+					ship_semi_medium_battery_duel
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+					ship_semi_medium_battery_single
+					ship_semi_medium_battery_duel
+				}
+			}
+			ship_battery_slot_6 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+					ship_semi_medium_battery_single
+					ship_semi_medium_battery_duel
+				}
+			}
+			ship_battery_slot_7 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+					ship_semi_medium_battery_single
+					ship_semi_medium_battery_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = sov_semi_large_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_200_160
+			ship_battery_slot_1 = sov_ship_medium_battery_2_x3
+			ship_battery_slot_2 = sov_ship_medium_battery_2_x3
+			ship_battery_slot_3 = sov_ship_medium_battery_2_x3
+			ship_battery_slot_4 = sov_ship_semi_medium_battery_11_x2
+			ship_battery_slot_5 = sov_ship_semi_medium_battery_11_x2
+			ship_battery_slot_6 = sov_ship_semi_medium_battery_11_x2
+			ship_battery_slot_7 = sov_ship_semi_medium_battery_11_x2
+			ship_anti_air_slot_1 = sov_ship_anti_air_2_10x1
+			ship_anti_air_slot_2 = sov_ship_anti_air_3_6x4
+			ship_anti_air_slot_3 = sov_ship_anti_air_3_4x4
+			ship_anti_air_slot_4 = sov_ship_large_anti_air_7_6x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+		}
+
+		manpower = 1450
+		naval_speed = 34.5
+		naval_range = 9000
+		reliability = 0.80
+
+		max_strength = 340
+		build_cost_ic = 6240
+
+		fuel_consumption = 40
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CA ENG United Kingdom
+
+	eng_heavy_cruiser_hull_1 = { #Hawkins
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_6 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_battery_slot_7 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_60
+			ship_battery_slot_1 = eng_ship_medium_battery_1_x1
+			ship_battery_slot_2 = eng_ship_medium_battery_1_x1
+			ship_battery_slot_3 = eng_ship_medium_battery_1_x1
+			ship_battery_slot_4 = eng_ship_medium_battery_1_x1
+			ship_battery_slot_5 = eng_ship_medium_battery_1_x1
+			ship_battery_slot_6 = eng_ship_medium_battery_1_x1
+			ship_battery_slot_7 = eng_ship_medium_battery_1_x1
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_4_4x1
+			ship_secondaries_slot_2 = eng_ship_light_secondaries_4_4x1
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = empty
+			torpedo_slot_1 = eng_ship_side_torpedo_2_2x2
+		}
+
+		manpower = 750
+		naval_speed = 31.0
+		naval_range = 5000
+		reliability = 0.60
+
+		max_strength = 210
+		build_cost_ic = 4500
+
+		fuel_consumption = 24
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_heavy_cruiser_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = eng_heavy_cruiser_hull_1
+	}
+
+	eng_heavy_cruiser_hull_2 = { #County
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = eng_ghost_heavy_cruiser_hull_1
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_110_60
+			ship_battery_slot_1 = eng_ship_medium_battery_2_x2
+			ship_battery_slot_2 = eng_ship_medium_battery_2_x2
+			ship_battery_slot_3 = eng_ship_medium_battery_2_x2
+			ship_battery_slot_4 = eng_ship_medium_battery_2_x2
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_4_4x1
+			ship_secondaries_slot_2 = empty
+			ship_anti_air_slot_1 = eng_ship_2_anti_air_1_2x4
+			ship_anti_air_slot_2 = eng_ship_2_large_anti_air_5_2x4
+			torpedo_slot_1 = eng_ship_side_torpedo_2_2x4
+			airplane_catapult_slot_1 = empty
+		}
+
+		manpower = 784
+		naval_speed = 31.5
+		naval_range = 7500
+		reliability = 0.65
+
+		max_strength = 240
+		build_cost_ic = 4920
+
+		fuel_consumption = 28
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_heavy_cruiser_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = eng_heavy_cruiser_hull_2
+	}
+
+	eng_heavy_cruiser_hull_3 = { #York
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = eng_ghost_heavy_cruiser_hull_2
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+					ship_anti_air_sextuple
+					ship_anti_air_octuple
+					ship_large_anti_air_duel
+					ship_large_anti_air_quad
+					ship_large_anti_air_sextuple
+					ship_large_anti_air_octuple
+				}
+			}
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+				}
+			}
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_70
+			ship_battery_slot_1 = eng_ship_medium_battery_2_x2
+			ship_battery_slot_2 = eng_ship_medium_battery_2_x2
+			ship_battery_slot_3 = eng_ship_medium_battery_2_x2
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_4_4x1
+			ship_secondaries_slot_2 = empty
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = eng_ship_2_anti_air_1_2x4
+			ship_anti_air_slot_3 = empty
+			torpedo_slot_1 = eng_ship_side_torpedo_2_2x3
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 620
+		naval_speed = 31.1
+		naval_range = 10000
+		reliability = 0.70
+
+		max_strength = 180
+		build_cost_ic = 4050
+
+		fuel_consumption = 21
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_heavy_cruiser_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = eng_heavy_cruiser_hull_3
+	}
+
+	eng_heavy_cruiser_hull_4 = { #Surrey
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = eng_ghost_heavy_cruiser_hull_3
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+					ship_2_large_anti_air_sextuple
+					ship_2_large_anti_air_octuple
+				}
+			}
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_5
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_130
+			ship_battery_slot_1 = eng_ship_medium_battery_2_x2
+			ship_battery_slot_2 = eng_ship_medium_battery_2_x2
+			ship_battery_slot_3 = eng_ship_medium_battery_2_x2
+			ship_battery_slot_4 = eng_ship_medium_battery_2_x2
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_4_4x1
+			ship_secondaries_slot_2 = eng_ship_light_secondaries_4_4x1
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = eng_ship_large_anti_air_5_4x8
+			torpedo_slot_1 = eng_ship_side_torpedo_2_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+		}
+
+		manpower = 650
+		naval_speed = 30.0
+		naval_range = 9250
+		reliability = 0.70
+
+		max_strength = 250
+		build_cost_ic = 4950
+
+		fuel_consumption = 29
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_heavy_cruiser_hull_4 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = eng_heavy_cruiser_hull_4
+	}
+
+	eng_heavy_cruiser_hull_5 = { #Albemarle
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = eng_ghost_heavy_cruiser_hull_4
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+					ship_large_anti_air_duel
+					ship_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+					ship_2_large_anti_air_sextuple
+					ship_2_large_anti_air_octuple
+				}
+			}
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_7
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_armor_slot = ship_armor_150_130
+			ship_battery_slot_1 = eng_ship_medium_battery_3_x3
+			ship_battery_slot_2 = eng_ship_medium_battery_3_x3
+			ship_battery_slot_3 = eng_ship_medium_battery_3_x3
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_4_6x2
+			ship_anti_air_slot_1 = eng_ship_anti_air_2_10x1
+			ship_anti_air_slot_2 = eng_ship_anti_air_2_6x1
+			ship_anti_air_slot_3 = eng_ship_large_anti_air_5_2x4
+			ship_anti_air_slot_4 = eng_ship_large_anti_air_5_4x8
+			torpedo_slot_1 = eng_ship_side_torpedo_2_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+		}
+
+		manpower = 1040
+		naval_speed = 33.0
+		naval_range = 9500
+		reliability = 0.75
+
+		max_strength = 280
+		build_cost_ic = 5430
+
+		fuel_consumption = 34
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_heavy_cruiser_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = eng_heavy_cruiser_hull_5
+	}
+
+	eng_heavy_cruiser_hull_6 = { #Drake
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = eng_ghost_heavy_cruiser_hull_5
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_anti_air_sextuple
+					ship_2_anti_air_octuple
+					ship_Vlarge_anti_air_duel
+					ship_2_large_anti_air_quad
+					ship_2_large_anti_air_sextuple
+					ship_2_large_anti_air_octuple
+				}
+			}
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_9
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_armor_slot = ship_armor_200_110
+			ship_battery_slot_1 = eng_ship_semi_heavy_battery_4_x3
+			ship_battery_slot_2 = eng_ship_semi_heavy_battery_4_x3
+			ship_battery_slot_3 = eng_ship_semi_heavy_battery_4_x3
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_10_6x2
+			ship_anti_air_slot_1 = eng_ship_anti_air_3_6x2
+			ship_anti_air_slot_2 = eng_ship_anti_air_3_6x2
+			ship_anti_air_slot_3 = eng_ship_anti_air_3_6x2
+			ship_anti_air_slot_4 = eng_ship_large_anti_air_5_4x4
+			ship_anti_air_slot_5 = eng_ship_large_anti_air_5_4x8
+			torpedo_slot_1 = eng_ship_side_torpedo_2_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+			airplane_catapult_slot_2 = ship_airplane_launcher_2
+		}
+
+		manpower = 1300
+		naval_speed = 33.0
+		naval_range = 9800
+		reliability = 0.80
+
+		max_strength = 350
+		build_cost_ic = 6150
+
+		fuel_consumption = 41
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_heavy_cruiser_hull_6 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = eng_heavy_cruiser_hull_6
+	}
+
+	eng_heavy_cruiser_hull_7 = { #Goliath
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = eng_ghost_heavy_cruiser_hull_6
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_single
+					ship_medium_battery_duel
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_anti_air_sextuple
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+					ship_2_large_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_7 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_anti_air_sextuple
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+					ship_2_large_anti_air_sextuple
+				}
+			}
+			torpedo_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_very_small_torpedo_launcher_side
+					ship_2_small_torpedo_launcher_side
+					ship_2_medium_torpedo_launcher_side
+					ship_2_large_torpedo_launcher_side
+				}
+			}
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_semi_large_ship_engine_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_200_150
+			ship_battery_slot_1 = eng_ship_semi_heavy_battery_4_x3
+			ship_battery_slot_2 = eng_ship_semi_heavy_battery_4_x3
+			ship_battery_slot_3 = eng_ship_semi_heavy_battery_4_x3
+			ship_battery_slot_4 = eng_ship_semi_heavy_battery_4_x3
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_11_6x2
+			ship_anti_air_slot_1 = eng_ship_anti_air_4_6x2
+			ship_anti_air_slot_2 = eng_ship_anti_air_4_6x2
+			ship_anti_air_slot_3 = eng_ship_anti_air_4_6x2
+			ship_anti_air_slot_4 = eng_ship_anti_air_4_2x2
+			ship_anti_air_slot_5 = eng_ship_large_anti_air_7_6x2
+			ship_anti_air_slot_6 = eng_ship_large_anti_air_7_4x6
+			ship_anti_air_slot_7 = eng_ship_large_anti_air_7_4x6
+			torpedo_slot_1 = eng_ship_side_torpedo_2_2x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+			airplane_catapult_slot_2 = ship_airplane_launcher_2
+		}
+
+		manpower = 1520
+		naval_speed = 33.0
+		naval_range = 9800
+		reliability = 0.85
+
+		max_strength = 380
+		build_cost_ic = 6540
+
+		fuel_consumption = 44
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CA USA United States
+
+	usa_heavy_cruiser_hull_1 = { #Pensacola
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_duel
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_quad
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_medium_ship_engine_5
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_100_55
+			ship_battery_slot_1 = usa_ship_medium_battery_1_x2
+			ship_battery_slot_2 = usa_ship_medium_battery_1_x2
+			ship_battery_slot_3 = usa_ship_medium_battery_1_x3
+			ship_battery_slot_4 = usa_ship_medium_battery_1_x3
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_4_4x1
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_4_4x1
+			ship_anti_air_slot_1 = usa_ship_3_anti_air_1_10x1
+			ship_anti_air_slot_2 = empty
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 1200
+		naval_speed = 32.5
+		naval_range = 6000
+		reliability = 0.65
+
+		max_strength = 200
+		build_cost_ic = 4380
+
+		fuel_consumption = 23
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_heavy_cruiser_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = usa_heavy_cruiser_hull_1
+	}
+
+	usa_heavy_cruiser_hull_2 = { #Portland
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = usa_ghost_heavy_cruiser_hull_1
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_quad
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_medium_ship_engine_5
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_130_60
+			ship_battery_slot_1 = usa_ship_medium_battery_1_x3
+			ship_battery_slot_2 = usa_ship_medium_battery_1_x3
+			ship_battery_slot_3 = usa_ship_medium_battery_1_x3
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_4_4x1
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_4_4x1
+			ship_anti_air_slot_1 = usa_ship_3_anti_air_1_10x1
+			ship_anti_air_slot_2 = empty
+			ship_anti_air_slot_3 = empty
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 1000
+		naval_speed = 32.7
+		naval_range = 9500
+		reliability = 0.70
+
+		max_strength = 170
+		build_cost_ic = 4140
+
+		fuel_consumption = 20
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_heavy_cruiser_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = usa_heavy_cruiser_hull_2
+	}
+
+	usa_heavy_cruiser_hull_3 = { #New Orleans
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = usa_ghost_heavy_cruiser_hull_2
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_quad
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_medium_ship_engine_5
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_130_90
+			ship_battery_slot_1 = usa_ship_medium_battery_1_x3
+			ship_battery_slot_2 = usa_ship_medium_battery_1_x3
+			ship_battery_slot_3 = usa_ship_medium_battery_1_x3
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_4_4x1
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_4_4x1
+			ship_anti_air_slot_1 = usa_ship_3_anti_air_1_10x1
+			ship_anti_air_slot_2 = empty
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 708
+		naval_speed = 32.7
+		naval_range = 9500
+		reliability = 0.70
+
+		max_strength = 220
+		build_cost_ic = 4530
+
+		fuel_consumption = 25
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_heavy_cruiser_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = usa_heavy_cruiser_hull_3
+	}
+
+	usa_heavy_cruiser_hull_4 = { #Witchita
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = usa_ghost_heavy_cruiser_hull_3
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_quad
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_medium_ship_engine_6
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_90
+			ship_battery_slot_1 = usa_ship_medium_battery_2_x3
+			ship_battery_slot_2 = usa_ship_medium_battery_2_x3
+			ship_battery_slot_3 = usa_ship_medium_battery_2_x3
+			ship_battery_slot_4 = usa_ship_light_battery_7_x1
+			ship_battery_slot_5 = usa_ship_light_battery_7_x1
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_7_6x1
+			ship_anti_air_slot_1 = usa_ship_anti_air_2_20x1
+			ship_anti_air_slot_2 = usa_ship_anti_air_5_4x2
+			ship_anti_air_slot_3 = usa_ship_anti_air_5_4x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_1
+			airplane_catapult_slot_2 = ship_airplane_launcher_1
+		}
+
+		manpower = 930
+		naval_speed = 33.0
+		naval_range = 9500
+		reliability = 0.75
+
+		max_strength = 220
+		build_cost_ic = 4710
+
+		fuel_consumption = 26
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_heavy_cruiser_hull_4 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = usa_heavy_cruiser_hull_4
+	}
+
+	usa_heavy_cruiser_hull_5 = { #Baltimore
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = usa_ghost_heavy_cruiser_hull_4
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_quad
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_medium_ship_engine_7
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_armor_slot = ship_armor_150_110
+			ship_battery_slot_1 = usa_ship_medium_battery_2_x3
+			ship_battery_slot_2 = usa_ship_medium_battery_2_x3
+			ship_battery_slot_3 = usa_ship_medium_battery_2_x3
+			ship_battery_slot_4 = usa_ship_light_battery_7_x2
+			ship_battery_slot_5 = usa_ship_light_battery_7_x2
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_7_4x2
+			ship_anti_air_slot_1 = usa_ship_anti_air_2_20x1
+			ship_anti_air_slot_2 = usa_ship_large_anti_air_6_6x4
+			ship_anti_air_slot_3 = usa_ship_large_anti_air_6_6x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+			airplane_catapult_slot_2 = ship_airplane_launcher_2
+		}
+
+		manpower = 1150
+		naval_speed = 33.0
+		naval_range = 9500
+		reliability = 0.80
+
+		max_strength = 290
+		build_cost_ic = 5670
+
+		fuel_consumption = 35
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_heavy_cruiser_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = usa_heavy_cruiser_hull_5
+	}
+
+	usa_heavy_cruiser_hull_6 = { #Oregon City
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = usa_ghost_heavy_cruiser_hull_5
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_quad
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_medium_ship_engine_8
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_150_130
+			ship_battery_slot_1 = usa_ship_medium_battery_2_x3
+			ship_battery_slot_2 = usa_ship_medium_battery_2_x3
+			ship_battery_slot_3 = usa_ship_medium_battery_2_x3
+			ship_battery_slot_4 = usa_ship_light_battery_7_x2
+			ship_battery_slot_5 = usa_ship_light_battery_7_x2
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_7_4x2
+			ship_anti_air_slot_1 = usa_ship_anti_air_3_20x1
+			ship_anti_air_slot_2 = usa_ship_large_anti_air_7_6x4
+			ship_anti_air_slot_3 = usa_ship_large_anti_air_7_6x4
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+			airplane_catapult_slot_2 = ship_airplane_launcher_2
+		}
+
+		manpower = 1140
+		naval_speed = 32.4
+		naval_range = 9500
+		reliability = 0.85
+
+		max_strength = 230
+		build_cost_ic = 4950
+
+		fuel_consumption = 27
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_heavy_cruiser_hull_6 = {
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		priority = 1900
+		parent = usa_heavy_cruiser_hull_6
+	}
+
+	usa_heavy_cruiser_hull_7 = { #Des Moines
+		year = 1922
+
+		archetype = ship_hull_heavy_cruiser
+		parent = usa_ghost_heavy_cruiser_hull_6
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_battery_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_medium_battery_triple
+					ship_semi_heavy_battery_triple
+				}
+			}
+			ship_battery_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+				}
+			}
+			ship_battery_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+					ship_light_battery_duel
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+
+			airplane_catapult_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+			airplane_catapult_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_airplane_launcher
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_semi_large_ship_engine_5
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_150_140
+			ship_battery_slot_1 = usa_ship_semi_heavy_battery_3_x3
+			ship_battery_slot_2 = usa_ship_semi_heavy_battery_3_x3
+			ship_battery_slot_3 = usa_ship_semi_heavy_battery_3_x3
+			ship_battery_slot_4 = usa_ship_light_battery_7_x2
+			ship_battery_slot_5 = usa_ship_light_battery_7_x2
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_7_4x2
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_7_6x2
+			ship_secondaries_slot_3 = usa_ship_light_secondaries_2_6x2
+			ship_anti_air_slot_1 = usa_ship_anti_air_4_6x2
+			ship_anti_air_slot_2 = usa_ship_anti_air_4_6x2
+			airplane_catapult_slot_1 = ship_airplane_launcher_2
+			airplane_catapult_slot_2 = ship_airplane_launcher_2
+		}
+
+		manpower = 1500
+		naval_speed = 33.0
+		naval_range = 9700
+		reliability = 0.85
+
+		max_strength = 360
+		build_cost_ic = 6480
+
+		fuel_consumption = 43
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+}

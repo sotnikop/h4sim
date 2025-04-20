@@ -1,0 +1,6882 @@
+equipments = {
+
+	#tanktype country
+	#tanktypes are FF DD
+	#countries are Generic FRA ITA JAP GER SOV ENG USA
+
+	ship_hull_carrier = {
+		year = 1922
+
+		is_archetype = yes
+		is_buildable = no
+		type = carrier
+		sprite = carrier
+		group_by = archetype
+		priority = 1000
+
+		interface_category = interface_category_capital_ships
+
+		upgrades = {
+			ship_deckspace_upgrade
+			carrier_armor_upgrade
+			ship_engine_upgrade
+			ship_reliability_upgrade
+		}
+
+		module_slots = {
+			fixed_ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = { ship_deck_space }
+				gfx = ship_deck_space_slot
+			}
+			fixed_ship_deck_slot_2 = {
+				required = no
+				allowed_module_categories = { ship_deck_space ship_carrier_armor }
+				gfx = ship_deck_space_slot
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { carrier_ship_engine }
+			}
+			fixed_ship_secondaries_slot = {
+				required = no
+				allowed_module_categories = { ship_secondaries }
+			}
+
+			front_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_deck_space
+					ship_carrier_armor
+					ship_secondaries
+				}
+			}
+		}
+
+		module_count_limit = {
+			category = ship_radar
+			count < 2
+		}
+
+		default_modules = {
+			fixed_ship_deck_slot_1 = empty
+			fixed_ship_deck_slot_2 = empty
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_1
+			fixed_ship_secondaries_slot = empty
+			front_1_custom_slot = empty
+		}
+
+		lg_armor_piercing = 0
+		lg_attack = 0
+
+		hg_armor_piercing = 0
+		hg_attack = 0
+
+		torpedo_attack = 0
+		sub_attack = 0
+
+		anti_air_attack = 0
+
+		armor_value = 0
+
+
+		surface_detection = 20
+		sub_detection = 5
+		surface_visibility = 30
+		naval_speed = 26
+		reliability = 0.70
+
+		naval_range = 3000
+
+		max_strength = 250
+
+
+		fuel_consumption = 87
+
+		# (Describes combat behaviour - hidden stat)
+		offensive_weapons = no
+
+		build_cost_ic = 2450
+		resources = {
+			steel = 5
+			chromium = 1
+			#iron = 1
+			coal = 10
+		}
+
+		manpower = 4500
+		naval_supremacy_factor = 2.6
+	}
+
+	ship_hull_light_carrier = {
+		year = 1922
+
+		is_archetype = yes
+		is_buildable = no
+		type = carrier
+		group_by = archetype
+		alias = light_carrier
+		priority = 1000
+
+		interface_category = interface_category_capital_ships
+
+		upgrades = {
+			ship_deckspace_upgrade
+			carrier_armor_upgrade
+			ship_engine_upgrade
+			ship_reliability_upgrade
+		}
+
+		module_slots = {
+			fixed_ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = { ship_deck_space }
+				gfx = ship_deck_space_slot
+			}
+			fixed_ship_deck_slot_2 = {
+				required = no
+				allowed_module_categories = { ship_deck_space ship_carrier_armor }
+				gfx = ship_deck_space_slot
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { carrier_ship_engine }
+			}
+			fixed_ship_secondaries_slot = {
+				required = no
+				allowed_module_categories = { ship_secondaries }
+			}
+
+			front_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_deck_space
+					ship_carrier_armor
+					ship_secondaries
+				}
+			}
+		}
+
+		module_count_limit = {
+			category = ship_radar
+			count < 2
+		}
+
+		default_modules = {
+			fixed_ship_deck_slot_1 = empty
+			fixed_ship_deck_slot_2 = empty
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_1
+			fixed_ship_secondaries_slot = empty
+			front_1_custom_slot = empty
+		}
+
+		lg_armor_piercing = 0
+		lg_attack = 0
+
+		hg_armor_piercing = 0
+		hg_attack = 0
+
+		torpedo_attack = 0
+		sub_attack = 0
+
+		anti_air_attack = 0
+
+		armor_value = 0
+
+
+		surface_detection = 20
+		sub_detection = 5
+		surface_visibility = 30
+		naval_speed = 26
+		reliability = 0.70
+
+		naval_range = 3000
+
+		max_strength = 250
+
+
+		fuel_consumption = 87
+
+		# (Describes combat behaviour - hidden stat)
+		offensive_weapons = no
+
+		build_cost_ic = 2450
+		resources = {
+			steel = 5
+			chromium = 1
+			#iron = 1
+			coal = 10
+		}
+
+		manpower = 4500
+		naval_supremacy_factor = 2
+	}
+
+################################################################################################################# Generic
+
+	generic_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_carrier_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_6 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_7 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = generic_large_carrier_ship_engine_1
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_40_30
+			ship_secondaries_slot_1 = generic_ship_semi_medium_casemate_secondaries_5_2x1
+			ship_secondaries_slot_2 = generic_ship_semi_medium_casemate_secondaries_5_2x1
+			ship_secondaries_slot_3 = generic_ship_semi_medium_casemate_secondaries_5_2x1
+			ship_secondaries_slot_4 = generic_ship_semi_medium_casemate_secondaries_5_2x1
+			ship_secondaries_slot_5 = generic_ship_semi_medium_casemate_secondaries_5_2x1
+			ship_secondaries_slot_6 = generic_ship_light_secondaries_1_2x1
+			ship_secondaries_slot_7 = generic_ship_light_secondaries_1_2x1
+			ship_anti_air_slot_1 = generic_ship_anti_air_1_10x1
+		}
+
+		manpower = 700
+		naval_speed = 19.2
+		naval_range = 6000
+		reliability = 0.70
+
+		carrier_size = 3
+
+		max_strength = 270
+		build_cost_ic = 8540
+
+		fuel_consumption = 54
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	generic_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_carrier_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = generic_large_carrier_ship_engine_1
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_60_40
+			ship_secondaries_slot_1 = generic_ship_light_secondaries_1_2x1
+			ship_secondaries_slot_2 = generic_ship_light_secondaries_1_2x1
+			ship_secondaries_slot_3 = generic_ship_light_secondaries_1_2x1
+			ship_secondaries_slot_4 = generic_ship_light_secondaries_1_2x1
+			ship_anti_air_slot_1 = generic_ship_anti_air_2_10x1
+			ship_anti_air_slot_2 = generic_ship_large_anti_air_3_2x2
+			ship_anti_air_slot_3 = generic_ship_large_anti_air_3_2x2
+		}
+
+		manpower = 1200
+		naval_speed = 22.2
+		naval_range = 7500
+		reliability = 0.75
+
+		carrier_size = 3
+
+		max_strength = 180
+		build_cost_ic = 6520
+
+		fuel_consumption = 36
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	generic_carrier_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_carrier_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+					ship_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+					ship_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+					ship_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+					ship_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+					ship_anti_air_quad
+					ship_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_7 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+					ship_anti_air_quad
+					ship_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = generic_large_carrier_ship_engine_1
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_60
+			ship_secondaries_slot_1 = generic_ship_light_secondaries_4_2x2
+			ship_secondaries_slot_2 = generic_ship_light_secondaries_4_2x2
+			ship_secondaries_slot_3 = generic_ship_light_secondaries_4_2x2
+			ship_secondaries_slot_4 = generic_ship_light_secondaries_4_2x2
+			ship_anti_air_slot_1 = generic_ship_anti_air_2_2x2
+			ship_anti_air_slot_2 = generic_ship_anti_air_2_2x2
+			ship_anti_air_slot_3 = generic_ship_anti_air_2_2x2
+			ship_anti_air_slot_4 = generic_ship_anti_air_2_2x2
+			ship_anti_air_slot_5 = generic_ship_anti_air_2_2x2
+			ship_anti_air_slot_6 = generic_ship_large_anti_air_3_2x4
+			ship_anti_air_slot_7 = generic_ship_large_anti_air_3_2x4
+		}
+
+		manpower = 2000
+		naval_speed = 31.9
+		naval_range = 9000
+		reliability = 0.80
+
+		carrier_size = 4
+
+		max_strength = 230
+		build_cost_ic = 8000
+
+		fuel_consumption = 45
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 10
+		}
+	}
+
+################################################################################################################# OLD NAVY
+
+	carrier_1 = {
+		year = 1922
+		visual_level = 1
+		archetype = ship_hull_carrier
+		priority = 1000
+		module_slots = {
+			fixed_ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = { ship_deck_space }
+				gfx = ship_deck_space_slot
+			}
+			fixed_ship_deck_slot_2 = {
+				required = no
+				allowed_module_categories = { ship_deck_space ship_carrier_armor }
+				gfx = ship_deck_space_slot
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { carrier_ship_engine }
+			}
+			fixed_ship_secondaries_slot = {
+				required = no
+				allowed_module_categories = { ship_secondaries }
+			}
+
+			front_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_deck_space
+					ship_carrier_armor
+					ship_secondaries
+					ship_anti_air
+				}
+			}
+		}
+		default_modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_4
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			front_1_custom_slot = ship_anti_air_3
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+
+		torpedo_attack = 0
+		carrier_size = 5
+
+		anti_air_attack = 0
+
+		armor_value = 7
+
+
+		surface_detection = 10
+		sub_detection = 5
+		surface_visibility = 30
+		naval_speed = 26
+		reliability = 0.70
+
+		naval_range = 3000
+
+		max_strength = 250
+
+
+		fuel_consumption = 87
+
+		# (Describes combat behaviour - hidden stat)
+		offensive_weapons = no
+
+		build_cost_ic = 3750
+		resources = {
+			#oil = 1
+			steel = 5
+			chromium = 1
+			#iron = 1
+			coal = 10
+		}
+
+		manpower = 4500
+	}
+
+	carrier_2 = {
+		year = 1936
+		visual_level = 1
+		archetype = ship_hull_carrier
+		priority = 1000
+		parent = carrier_1
+		module_slots = {
+			fixed_ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = { ship_deck_space }
+				gfx = ship_deck_space_slot
+			}
+			fixed_ship_deck_slot_2 = {
+				required = no
+				allowed_module_categories = { ship_deck_space ship_carrier_armor }
+				gfx = ship_deck_space_slot
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { carrier_ship_engine }
+			}
+			fixed_ship_secondaries_slot = {
+				required = no
+				allowed_module_categories = { ship_secondaries }
+			}
+
+			front_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_deck_space
+					ship_carrier_armor
+					ship_secondaries
+					ship_anti_air
+				}
+			}
+		}
+		default_modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_4
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			front_1_custom_slot = ship_anti_air_4
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 0
+		carrier_size = 1
+
+		anti_air_attack = 2
+
+		armor_value = 9
+
+
+		surface_detection = 10
+		sub_detection = 5
+		surface_visibility = 30
+		naval_speed = 28
+		reliability = 0.80
+
+		naval_range = 4000
+
+		max_strength = 325
+
+
+
+		build_cost_ic = 4500
+		resources = {
+			#oil = 1
+			steel = 7
+			chromium = 1
+			#iron = 1
+			coal = 10
+		}
+		manpower = 5000
+	}
+
+	carrier_3 = {
+		year = 1940
+		visual_level = 1
+		archetype = ship_hull_carrier
+		priority = 1000
+		parent = carrier_2
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_4
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			front_1_custom_slot = ship_deck_space
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 0
+		carrier_size = 1
+
+		anti_air_attack = 8
+
+		armor_value = 11
+
+
+		surface_detection = 20
+		sub_detection = 5
+		surface_visibility = 30
+		naval_speed = 30
+		reliability = 0.85
+
+		naval_range = 5000
+
+		max_strength = 350
+
+
+
+		build_cost_ic = 5250
+		resources = {
+			#oil = 2
+			steel = 7
+			chromium = 2
+			#iron = 1
+			coal = 10
+		}
+		manpower = 5500
+	}
+
+	carrier_4 = {
+		year = 1944
+		visual_level = 1
+		archetype = ship_hull_carrier
+		priority = 1000
+		parent = carrier_3
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_4
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			front_1_custom_slot = ship_deck_space
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 0
+		carrier_size = 3
+
+		anti_air_attack = 10
+
+		armor_value = 13
+
+
+		surface_detection = 30
+		sub_detection = 5
+		surface_visibility = 30
+		naval_speed = 32
+		reliability = 0.90
+
+		naval_range = 6000
+
+		max_strength = 400
+
+
+
+		build_cost_ic = 6000
+		resources = {
+			#oil = 2
+			steel = 8
+			chromium = 2
+			#iron = 1
+			coal = 10
+		}
+		manpower = 6000
+	}
+
+################################################################################################################# CV FRA France
+
+	fra_carrier_hull_1 = { #Bearn
+		year = 1920
+
+		archetype = ship_hull_carrier
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					bearn_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_casemate_secondaries_single
+					ship_2_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_casemate_secondaries_single
+					ship_2_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = fra_medium_ship_engine_4
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_25
+			ship_deck_slot_1 = bearn_deck_space_35
+			ship_secondaries_slot_1 = fra_ship_semi_medium_casemate_secondaries_12_4x1
+			ship_secondaries_slot_2 = fra_ship_semi_medium_casemate_secondaries_12_4x1
+			ship_secondaries_slot_3 = fra_ship_light_secondaries_1_6x1
+		}
+
+		manpower = 865
+		naval_speed = 21.5
+		naval_range = 6500
+		reliability = 0.60
+
+		max_strength = 290
+		build_cost_ic = 15824
+
+		fuel_consumption = 58
+		resources = {
+			steel = 9
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	fra_ghost_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = fra_carrier_hull_1
+	}
+
+	fra_carrier_hull_2 = { #Joffre
+		year = 1920
+
+		archetype = ship_hull_carrier
+		parent = fra_ghost_carrier_hull_1
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					joffre_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+					ship_2_medium_secondaries_single
+					ship_2_medium_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = fra_semi_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_armor_slot = ship_armor_110_70
+			ship_deck_slot_1 = joffre_deck_space_40
+			ship_secondaries_slot_1 = fra_ship_medium_secondaries_11_4x2
+			ship_anti_air_slot_1 = fra_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_2 = fra_ship_anti_air_1_4x4
+			ship_anti_air_slot_3 = fra_ship_anti_air_1_4x4
+		}
+
+		manpower = 1250
+		naval_speed = 33.5
+		naval_range = 6500
+		reliability = 0.75
+
+		max_strength = 300
+		build_cost_ic = 14998
+
+		fuel_consumption = 40
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	fra_ghost_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = fra_carrier_hull_2
+	}
+
+	fra_carrier_hull_3 = { #Clemencau
+		year = 1920
+
+		archetype = ship_hull_carrier
+		parent = fra_ghost_carrier_hull_2
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					clemencau_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = fra_large_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_150_90
+			ship_deck_slot_1 = clemencau_deck_space_80
+			ship_secondaries_slot_1 = fra_ship_light_secondaries_3_4x1
+			ship_secondaries_slot_2 = fra_ship_light_secondaries_3_4x1
+			ship_anti_air_slot_1 = fra_ship_anti_air_2_10x1
+			ship_anti_air_slot_2 = fra_ship_large_anti_air_5_6x2
+			ship_anti_air_slot_3 = fra_ship_large_anti_air_5_6x2
+		}
+
+		manpower = 2500
+		naval_speed = 32.0
+		naval_range = 6000
+		reliability = 0.80
+
+		max_strength = 530
+		build_cost_ic = 20296
+
+		fuel_consumption = 66
+		resources = {
+			steel = 10
+			#iron = 1
+			coal = 10
+		}
+	}
+
+################################################################################################################# CV ITA Italy
+
+	ita_carrier_hull_1 = { #Sparviero
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					sparviero_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_medium_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ita_semi_large_ship_engine_1
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_70
+			ship_deck_slot_1 = sparviero_deck_space_46
+			ship_secondaries_slot_1 = ita_ship_medium_secondaries_8_4x1
+			ship_secondaries_slot_2 = ita_ship_medium_secondaries_8_4x1
+			ship_anti_air_slot_1 = ita_ship_anti_air_1_6x2
+			ship_anti_air_slot_2 = ita_ship_anti_air_1_4x2
+			ship_anti_air_slot_3 = ita_ship_large_anti_air_3_6x2
+		}
+
+		manpower = 1420
+		naval_speed = 20.0
+		naval_range = 3800
+		reliability = 0.65
+
+		max_strength = 330
+		build_cost_ic = 16925
+
+		fuel_consumption = 56
+		resources = {
+			steel = 9
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	ita_ghost_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = ita_carrier_hull_1
+	}
+
+	ita_carrier_hull_2 = { #Aquila
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = ita_ghost_carrier_hull_1
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					aquila_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+			        ship_3_anti_air_quad
+			        ship_3_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+			        ship_3_anti_air_quad
+			        ship_3_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+			        ship_3_anti_air_quad
+			        ship_3_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+			        ship_2_anti_air_quad
+			        ship_2_anti_air_sextuple
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ita_semi_large_ship_engine_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_armor_slot = ship_armor_140_80
+			ship_deck_slot_1 = aquila_deck_space_51
+			ship_secondaries_slot_1 = ita_ship_medium_secondaries_8_4x1
+			ship_secondaries_slot_2 = ita_ship_medium_secondaries_8_4x1
+			ship_secondaries_slot_3 = ita_ship_light_secondaries_1_6x2
+			ship_anti_air_slot_1 = ita_ship_anti_air_2_6x6
+			ship_anti_air_slot_2 = ita_ship_anti_air_2_6x6
+			ship_anti_air_slot_3 = ita_ship_anti_air_2_6x6
+			ship_anti_air_slot_4 = ita_ship_anti_air_2_4x6
+		}
+
+		manpower = 1420
+		naval_speed = 29.1
+		naval_range = 5100
+		reliability = 0.80
+
+		max_strength = 330
+		build_cost_ic = 17750
+
+		fuel_consumption = 56
+		resources = {
+			steel = 9
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	ita_ghost_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = ita_carrier_hull_2
+	}
+
+	ita_carrier_hull_3 = { #Falco
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = ita_ghost_carrier_hull_2
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					falco_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+			        ship_3_anti_air_quad
+			        ship_3_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+			        ship_3_anti_air_quad
+			        ship_3_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+			        ship_3_anti_air_quad
+			        ship_3_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+			        ship_3_anti_air_quad
+			        ship_3_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ita_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_150_100
+			ship_deck_slot_1 = falco_deck_space_85
+			ship_secondaries_slot_1 = ita_ship_light_secondaries_8_6x2
+			ship_secondaries_slot_2 = ita_ship_light_secondaries_8_6x2
+			ship_anti_air_slot_1 = ita_ship_anti_air_2_6x6
+			ship_anti_air_slot_2 = ita_ship_anti_air_2_6x6
+			ship_anti_air_slot_3 = ita_ship_anti_air_2_6x6
+			ship_anti_air_slot_4 = ita_ship_anti_air_2_6x6
+			ship_anti_air_slot_5 = ita_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_6 = ita_ship_large_anti_air_4_4x2
+		}
+
+		manpower = 2620
+		naval_speed = 33.0
+		naval_range = 9000
+		reliability = 0.80
+
+		max_strength = 530
+		build_cost_ic = 21259
+
+		fuel_consumption = 76
+		resources = {
+			steel = 11
+			#iron = 1
+			coal = 10
+		}
+	}
+
+################################################################################################################# CV JAP Japan
+
+	jap_carrier_hull_1 = { #Akagi
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					akagi_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+					ship_3_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_80
+			ship_deck_slot_1 = akagi_deck_space_91
+			ship_secondaries_slot_1 = jap_ship_medium_secondaries_1_6x1
+			ship_secondaries_slot_2 = jap_ship_light_secondaries_7_6x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_6x2
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_4x2
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_4x2
+		}
+
+		manpower = 1630
+		naval_speed = 31.5
+		naval_range = 9500
+		reliability = 0.65
+
+		max_strength = 420
+		build_cost_ic = 22773
+
+		fuel_consumption = 84
+		resources = {
+			steel = 12
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	jap_ghost_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = jap_carrier_hull_1
+	}
+
+	jap_carrier_hull_2 = { #Kaga
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = jap_ghost_carrier_hull_1
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					kaga_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+					ship_3_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+					ship_2_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_40
+			ship_deck_slot_1 = kaga_deck_space_90
+			ship_secondaries_slot_1 = jap_ship_medium_secondaries_1_6x1
+			ship_secondaries_slot_2 = jap_ship_medium_secondaries_1_4x1
+			ship_secondaries_slot_3 = jap_ship_light_secondaries_4_4x2
+			ship_secondaries_slot_4 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_6x2
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_6x2
+		}
+
+		manpower = 1710
+		naval_speed = 28.0
+		naval_range = 7500
+		reliability = 0.65
+
+		max_strength = 390
+		build_cost_ic = 21397
+
+		fuel_consumption = 78
+		resources = {
+			steel = 11
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	jap_ghost_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = jap_carrier_hull_2
+	}
+
+	jap_carrier_hull_3 = { #Soryu
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = jap_ghost_carrier_hull_2
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					soryu_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_6
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_40_30
+			ship_deck_slot_1 = soryu_deck_space_72
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_6x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_6x2
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_4x2
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_4x2
+		}
+
+		manpower = 1100
+		naval_speed = 34.0
+		naval_range = 7175
+		reliability = 0.70
+
+		max_strength = 240
+		build_cost_ic = 14379
+
+		fuel_consumption = 38
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	jap_ghost_carrier_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = jap_carrier_hull_3
+	}
+
+	jap_carrier_hull_4 = { #Hiryu
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = jap_ghost_carrier_hull_3
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					hiryu_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_9
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_150_60
+			ship_deck_slot_1 = hiryu_deck_space_72
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_6x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_6x2
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_4x3
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_4x3
+		}
+
+		manpower = 1100
+		naval_speed = 34.0
+		naval_range = 9550
+		reliability = 0.75
+
+		max_strength = 260
+		build_cost_ic = 14930
+
+		fuel_consumption = 41
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	jap_ghost_carrier_hull_4 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = jap_carrier_hull_4
+	}
+
+	jap_carrier_hull_5 = { #Shokaku
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = jap_ghost_carrier_hull_4
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor ship_heavy_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					shokaku_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_semi_large_ship_engine_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_armor_slot = ship_armor_170_90
+			ship_deck_slot_1 = shokaku_deck_space_84
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_secondaries_slot_2 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_4 = empty
+		}
+
+		manpower = 1660
+		naval_speed = 34.5
+		naval_range = 9000
+		reliability = 0.75
+
+		max_strength = 470
+		build_cost_ic = 19814
+
+		fuel_consumption = 64
+		resources = {
+			steel = 10
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	jap_ghost_carrier_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = jap_carrier_hull_5
+	}
+
+	jap_carrier_hull_6 = { #Taiho
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = jap_ghost_carrier_hull_5
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					taiho_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_semi_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_armor_slot = ship_armor_150_80
+			ship_deck_slot_1 = taiho_deck_space_82
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_3_6x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_6x3
+		}
+
+		manpower = 1751
+		naval_speed = 33.0
+		naval_range = 9500
+		reliability = 0.80
+
+		max_strength = 530
+		build_cost_ic = 21603
+
+		fuel_consumption = 76
+		resources = {
+			steel = 11
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	jap_ghost_carrier_hull_6 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = jap_carrier_hull_6
+	}
+
+	jap_carrier_hull_7 = { #Hakuryu
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = jap_ghost_carrier_hull_6
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { very_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor ship_heavy_armor ship_super_heavy_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					hakuryu_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_very_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_200_150
+			ship_deck_slot_1 = hakuryu_deck_space_120
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_3_6x2
+			ship_secondaries_slot_2 = jap_ship_light_secondaries_3_6x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_10x1
+			ship_anti_air_slot_2 = jap_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_3 = jap_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_4 = jap_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_5 = jap_ship_large_anti_air_4_4x2
+		}
+
+		manpower = 2545
+		naval_speed = 34.0
+		naval_range = 7260
+		reliability = 0.80
+
+		max_strength = 780
+		build_cost_ic = 26006
+
+		fuel_consumption = 95
+		resources = {
+			steel = 13
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	jap_ghost_carrier_hull_7 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = jap_carrier_hull_7
+	}
+
+	jap_carrier_hull_8 = { #Hotaka
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = jap_ghost_carrier_hull_7
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { colossal_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor ship_heavy_armor ship_super_heavy_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					hotaka_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_7 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_8 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_9 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_colossal_ship_engine_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_400_75
+			ship_deck_slot_1 = hotaka_deck_space_168
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_secondaries_slot_2 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_10x1
+			ship_anti_air_slot_2 = jap_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_3 = jap_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_4 = jap_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_5 = jap_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_6 = jap_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_7 = jap_ship_large_anti_air_4_6x2
+			ship_anti_air_slot_8 = jap_ship_large_anti_air_4_4x2
+			ship_anti_air_slot_9 = jap_ship_large_anti_air_4_4x2
+		}
+
+		manpower = 3400
+		naval_speed = 30.0
+		naval_range = 8920
+		reliability = 0.85
+
+		max_strength = 1000
+		build_cost_ic = 29515
+
+		fuel_consumption = 138
+		resources = {
+			steel = 16
+			#iron = 1
+			coal = 10
+		}
+	}
+
+################################################################################################################# CV GER Germany
+
+	ger_carrier_hull_1 = { #Graf Zeppelin
+		year = 1937
+
+		archetype = ship_hull_carrier
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					graf_zeppelin_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_semi_medium_casemate_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_semi_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_100_100
+			ship_deck_slot_1 = graf_zeppelin_deck_space_42
+			ship_secondaries_slot_1 = ger_ship_light_secondaries_6_6x2
+			ship_secondaries_slot_2 = ger_ship_semi_medium_casemate_secondaries_11_6x1
+			ship_secondaries_slot_3 = ger_ship_semi_medium_casemate_secondaries_11_6x1
+			ship_secondaries_slot_4 = ger_ship_semi_medium_casemate_secondaries_11_4x1
+			ship_anti_air_slot_1 = ger_ship_anti_air_1_6x2
+			ship_anti_air_slot_2 = ger_ship_anti_air_1_4x2
+			ship_anti_air_slot_3 = ger_ship_anti_air_1_4x2
+			ship_anti_air_slot_4 = ger_ship_large_anti_air_3_6x2
+			ship_anti_air_slot_5 = ger_ship_large_anti_air_3_4x2
+		}
+
+		manpower = 1720
+		naval_speed = 34.0
+		naval_range = 7500
+		reliability = 0.75
+
+		max_strength = 490
+		build_cost_ic = 20571
+
+		fuel_consumption = 68
+		resources = {
+			steel = 11
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	ger_ghost_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = ger_carrier_hull_1
+	}
+
+	ger_carrier_hull_2 = { #Europa
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = ger_ghost_carrier_hull_1
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					europa_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_armor_slot = ship_armor_140_150
+			ship_deck_slot_1 = europa_deck_space_90
+			ship_secondaries_slot_1 = ger_ship_light_secondaries_6_6x2
+			ship_secondaries_slot_2 = ger_ship_light_secondaries_6_4x2
+			ship_anti_air_slot_1 = ger_ship_anti_air_1_20x1
+			ship_anti_air_slot_2 = ger_ship_anti_air_2_6x4
+			ship_anti_air_slot_3 = ger_ship_large_anti_air_3_6x2
+			ship_anti_air_slot_4 = ger_ship_large_anti_air_3_4x2
+		}
+
+		manpower = 2500
+		naval_speed = 33.0
+		naval_range = 10000
+		reliability = 0.80
+
+		max_strength = 650
+		build_cost_ic = 24011
+
+		fuel_consumption = 90
+		resources = {
+			steel = 12
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	ger_ghost_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = ger_carrier_hull_2
+	}
+
+	ger_carrier_hull_3 = { #Aurora
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = ger_ghost_carrier_hull_2
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					aurora_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_7 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_8 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_9 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_200_150
+			ship_deck_slot_1 = aurora_deck_space_120
+			ship_secondaries_slot_1 = ger_ship_light_secondaries_6_6x2
+			ship_secondaries_slot_2 = ger_ship_light_secondaries_6_4x2
+			ship_anti_air_slot_1 = ger_ship_anti_air_2_6x4
+			ship_anti_air_slot_2 = ger_ship_anti_air_2_6x4
+			ship_anti_air_slot_3 = ger_ship_anti_air_2_6x4
+			ship_anti_air_slot_4 = ger_ship_anti_air_2_6x4
+			ship_anti_air_slot_5 = ger_ship_anti_air_2_6x4
+			ship_anti_air_slot_6 = ger_ship_anti_air_2_2x4
+			ship_anti_air_slot_7 = ger_ship_large_anti_air_5_6x2
+			ship_anti_air_slot_8 = ger_ship_large_anti_air_5_6x2
+			ship_anti_air_slot_9 = ger_ship_large_anti_air_5_6x2
+		}
+
+		manpower = 2800
+		naval_speed = 31.0
+		naval_range = 12100
+		reliability = 0.85
+
+		max_strength = 870
+		build_cost_ic = 28002
+
+		fuel_consumption = 113
+		resources = {
+			steel = 15
+			#iron = 1
+			coal = 10
+		}
+	}
+
+################################################################################################################# CV SOV Soviet Union
+
+	sov_carrier_hull_1 = { #Izmail
+		year = 1920
+
+		archetype = ship_hull_carrier
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor ship_heavy_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					izmail_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_casemate_secondaries_single
+					ship_2_semi_medium_casemate_secondaries_single
+					ship_2_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_casemate_secondaries_single
+					ship_2_semi_medium_casemate_secondaries_single
+					ship_2_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = sov_semi_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_240_75
+			ship_deck_slot_1 = izmail_deck_space_40
+			ship_secondaries_slot_1 = sov_ship_medium_casemate_secondaries_1_4x1
+			ship_secondaries_slot_2 = sov_ship_medium_casemate_secondaries_1_4x1
+			ship_secondaries_slot_3 = sov_ship_light_secondaries_5_4x1
+			ship_secondaries_slot_4 = sov_ship_light_secondaries_5_4x1
+			ship_anti_air_slot_1 = empty
+		}
+
+		manpower = 1174
+		naval_speed = 27.0
+		naval_range = 2200
+		reliability = 0.65
+
+		max_strength = 420
+		build_cost_ic = 19883
+
+		fuel_consumption = 74
+		resources = {
+			steel = 11
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	sov_ghost_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = sov_carrier_hull_1
+	}
+
+	sov_carrier_hull_2 = { #Oryol
+		year = 1920
+
+		archetype = ship_hull_carrier
+		parent = sov_ghost_carrier_hull_1
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					oryol_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = sov_medium_ship_engine_4
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_armor_slot = ship_armor_100_90
+			ship_deck_slot_1 = oryol_deck_space_50
+			ship_secondaries_slot_1 = sov_ship_light_secondaries_6_4x2
+			ship_anti_air_slot_1 = sov_ship_anti_air_2_20x1
+			ship_anti_air_slot_2 = sov_ship_large_anti_air_6_4x4
+		}
+
+		manpower = 1174
+		naval_speed = 35.0
+		naval_range = 3100
+		reliability = 0.75
+
+		max_strength = 280
+		build_cost_ic = 11077
+
+		fuel_consumption = 26
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	sov_ghost_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = sov_carrier_hull_2
+	}
+
+	sov_carrier_hull_3 = { #Sevastapol
+		year = 1920
+
+		archetype = ship_hull_carrier
+		parent = sov_ghost_carrier_hull_2
+		priority = 2000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { very_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					sevastapol_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+					ship_2_medium_secondaries_single
+					ship_2_medium_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+					ship_2_medium_secondaries_single
+					ship_2_medium_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = sov_very_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_150_140
+			ship_deck_slot_1 = sevastapol_deck_space_70
+			ship_secondaries_slot_1 = sov_ship_medium_secondaries_11_4x2
+			ship_secondaries_slot_2 = sov_ship_medium_secondaries_11_4x2
+			ship_secondaries_slot_3 = sov_ship_light_secondaries_4_4x2
+			ship_secondaries_slot_4 = sov_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = sov_ship_anti_air_2_10x1
+			ship_anti_air_slot_2 = sov_ship_large_anti_air_6_4x2
+			ship_anti_air_slot_3 = sov_ship_large_anti_air_6_4x2
+		}
+
+		manpower = 2100
+		naval_speed = 28.0
+		naval_range = 3900
+		reliability = 0.80
+
+		max_strength = 670
+		build_cost_ic = 21259
+
+		fuel_consumption = 75
+		resources = {
+			steel = 11
+			#iron = 1
+			coal = 10
+		}
+	}
+
+################################################################################################################# CV ENG United Kingdom
+
+	eng_carrier_hull_1 = { #Eagle
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					eagle_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_medium_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_6
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_110_40
+			ship_deck_slot_1 = eagle_deck_space_30
+			ship_secondaries_slot_1 = eng_ship_medium_secondaries_1_6x1
+			ship_secondaries_slot_2 = eng_ship_medium_secondaries_1_4x1
+			ship_secondaries_slot_3 = eng_ship_light_secondaries_4_6x1
+			ship_anti_air_slot_1 = empty
+		}
+
+		manpower = 790
+		naval_speed = 24.0
+		naval_range = 4450
+		reliability = 0.60
+
+		max_strength = 270
+		build_cost_ic = 14586
+
+		fuel_consumption = 44
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	eng_ghost_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = eng_carrier_hull_1
+	}
+
+	eng_carrier_hull_2 = { #Courageous
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = eng_ghost_carrier_hull_1
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					courageous_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_semi_large_ship_engine_1
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_80_25
+			ship_deck_slot_1 = courageous_deck_space_48
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_6_6x1
+			ship_secondaries_slot_2 = eng_ship_light_secondaries_6_6x1
+			ship_secondaries_slot_3 = eng_ship_light_secondaries_6_4x1
+			ship_anti_air_slot_1 = empty
+		}
+
+		manpower = 1217
+		naval_speed = 30.0
+		naval_range = 7000
+		reliability = 0.65
+
+		max_strength = 340
+		build_cost_ic = 17682
+
+		fuel_consumption = 48
+		resources = {
+			steel = 9
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	eng_ghost_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = eng_carrier_hull_2
+	}
+
+	eng_carrier_hull_3 = { #Ark Royal
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = eng_ghost_carrier_hull_2
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ark_royal_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+					ship_2_large_anti_air_sextuple
+					ship_2_large_anti_air_octuple
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_semi_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_110_90
+			ship_deck_slot_1 = ark_royal_deck_space_72
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_10_4x2
+			ship_secondaries_slot_2 = eng_ship_light_secondaries_10_4x2
+			ship_anti_air_slot_1 = eng_ship_anti_air_1_4x4
+			ship_anti_air_slot_2 = eng_ship_large_anti_air_5_4x8
+		}
+
+		manpower = 1580
+		naval_speed = 30.0
+		naval_range = 7050
+		reliability = 0.70
+
+		max_strength = 420
+		build_cost_ic = 15824
+
+		fuel_consumption = 44
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	eng_ghost_carrier_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = eng_carrier_hull_3
+	}
+
+	eng_carrier_hull_4 = { #Illustrious
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = eng_ghost_carrier_hull_3
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					illustrious_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+					ship_large_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+					ship_large_anti_air_duel
+					ship_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_anti_air_sextuple
+					ship_3_anti_air_octuple
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+					ship_3_large_anti_air_sextuple
+					ship_3_large_anti_air_octuple
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_semi_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_110_140
+			ship_deck_slot_1 = illustrious_deck_space_58
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_10_4x2
+			ship_secondaries_slot_2 = eng_ship_light_secondaries_10_4x2
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = empty
+			ship_anti_air_slot_3 = empty
+			ship_anti_air_slot_4 = empty
+			ship_anti_air_slot_5 = empty
+			ship_anti_air_slot_6 = eng_ship_large_anti_air_5_6x8
+		}
+
+		manpower = 1230
+		naval_speed = 30.5
+		naval_range = 10000
+		reliability = 0.75
+
+		max_strength = 430
+		build_cost_ic = 15686
+
+		fuel_consumption = 46
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	eng_ghost_carrier_hull_4 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = eng_carrier_hull_4
+	}
+
+	eng_carrier_hull_5 = { #Implacable
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = eng_ghost_carrier_hull_4
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor ship_heavy_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					implacable_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+					ship_2_large_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_anti_air_sextuple
+					ship_3_anti_air_octuple
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+					ship_3_large_anti_air_sextuple
+					ship_3_large_anti_air_octuple
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+			fixed_ship_radar_slot = ship_radar_2
+			fixed_ship_armor_slot = ship_armor_140_170
+			ship_deck_slot_1 = implacable_deck_space_80
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_10_4x2
+			ship_secondaries_slot_2 = eng_ship_light_secondaries_10_4x2
+			ship_anti_air_slot_1 = eng_ship_anti_air_3_10x1
+			ship_anti_air_slot_2 = eng_ship_2_large_anti_air_6_10x1
+			ship_anti_air_slot_3 = eng_ship_anti_air_3_6x2
+			ship_anti_air_slot_4 = eng_ship_anti_air_3_2x2
+			ship_anti_air_slot_5 = eng_ship_large_anti_air_5_6x4
+			ship_anti_air_slot_6 = eng_ship_large_anti_air_5_6x8
+		}
+
+		manpower = 2300
+		naval_speed = 32.5
+		naval_range = 11000
+		reliability = 0.75
+
+		max_strength = 630
+		build_cost_ic = 19058
+
+		fuel_consumption = 65
+		resources = {
+			steel = 10
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	eng_ghost_carrier_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = eng_carrier_hull_5
+	}
+
+	eng_carrier_hull_6 = { #Audacious
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = eng_ghost_carrier_hull_5
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor ship_heavy_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					audacious_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+					ship_3_large_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_anti_air_sextuple
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+					ship_3_large_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_anti_air_sextuple
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+					ship_2_large_anti_air_sextuple
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_150_180
+			ship_deck_slot_1 = audacious_deck_space_100
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_10_4x2
+			ship_secondaries_slot_2 = eng_ship_light_secondaries_10_4x2
+			ship_anti_air_slot_1 = eng_ship_large_anti_air_6_30x1
+			ship_anti_air_slot_2 = eng_ship_large_anti_air_6_4x2
+			ship_anti_air_slot_3 = eng_ship_large_anti_air_6_6x6
+			ship_anti_air_slot_4 = eng_ship_large_anti_air_6_4x6
+		}
+
+		manpower = 2500
+		naval_speed = 32.0
+		naval_range = 6500
+		reliability = 0.80
+
+		max_strength = 670
+		build_cost_ic = 20709
+
+		fuel_consumption = 74
+		resources = {
+			steel = 11
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	eng_ghost_carrier_hull_6 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = eng_carrier_hull_6
+	}
+
+	eng_carrier_hull_7 = { #Malta
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = eng_ghost_carrier_hull_6
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { very_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor ship_heavy_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					malta_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+					ship_3_large_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_anti_air_sextuple
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+					ship_3_large_anti_air_sextuple
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_anti_air_sextuple
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+					ship_3_large_anti_air_sextuple
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_very_large_ship_engine_6
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_180_180
+			ship_deck_slot_1 = malta_deck_space_110
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_11_4x2
+			ship_secondaries_slot_2 = eng_ship_light_secondaries_11_4x2
+			ship_anti_air_slot_1 = eng_ship_large_anti_air_7_30x1
+			ship_anti_air_slot_2 = eng_ship_large_anti_air_7_4x2
+			ship_anti_air_slot_3 = eng_ship_large_anti_air_7_4x2
+			ship_anti_air_slot_4 = eng_ship_large_anti_air_7_6x6
+			ship_anti_air_slot_5 = eng_ship_large_anti_air_7_6x6
+		}
+
+		manpower = 3500
+		naval_speed = 33.0
+		naval_range = 6550
+		reliability = 0.85
+
+		max_strength = 940
+		build_cost_ic = 27520
+
+		fuel_consumption = 117
+		resources = {
+			steel = 15
+			#iron = 1
+			coal = 10
+		}
+	}
+
+################################################################################################################# CV USA United States
+
+	usa_carrier_hull_1 = { #Langely
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					langely_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_medium_ship_engine_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_30_30
+			ship_deck_slot_1 = langely_deck_space_36
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_5_4x1
+			ship_anti_air_slot_1 = empty
+		}
+
+		manpower = 470
+		naval_speed = 15.5
+		naval_range = 3200
+		reliability = 0.65
+
+		max_strength = 130
+		build_cost_ic = 10045
+
+		fuel_consumption = 26
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	usa_ghost_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = usa_carrier_hull_1
+	}
+
+	usa_carrier_hull_2 = { #Lexington
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = usa_ghost_carrier_hull_1
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					lexington_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_duel
+					ship_2_medium_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_7 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_8 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_180_50
+			ship_deck_slot_1 = lexington_deck_space_90
+			ship_secondaries_slot_1 = usa_ship_medium_secondaries_1_4x2
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_4_6x1
+			ship_secondaries_slot_3 = usa_ship_light_secondaries_4_6x1
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = empty
+			ship_anti_air_slot_3 = empty
+			ship_anti_air_slot_4 = empty
+			ship_anti_air_slot_5 = empty
+			ship_anti_air_slot_6 = empty
+			ship_anti_air_slot_7 = empty
+			ship_anti_air_slot_8 = empty
+		}
+
+		manpower = 2790
+		naval_speed = 33.0
+		naval_range = 9500
+		reliability = 0.65
+
+		max_strength = 370
+		build_cost_ic = 21810
+
+		fuel_consumption = 97
+		resources = {
+			steel = 11
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	usa_ghost_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = usa_carrier_hull_2
+	}
+
+	usa_carrier_hull_3 = { #Ranger
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = usa_ghost_carrier_hull_2
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ranger_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_semi_large_ship_engine_1
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_50_25
+			ship_deck_slot_1 = ranger_deck_space_60
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_4_4x1
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_4_4x1
+			ship_anti_air_slot_1 = usa_ship_3_anti_air_1_20x1
+			ship_anti_air_slot_2 = usa_ship_3_anti_air_1_20x1
+			ship_anti_air_slot_3 = empty
+			ship_anti_air_slot_4 = empty
+		}
+
+		manpower = 2460
+		naval_speed = 29.0
+		naval_range = 9500
+		reliability = 0.70
+
+		max_strength = 180
+		build_cost_ic = 14104
+
+		fuel_consumption = 36
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	usa_ghost_carrier_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = usa_carrier_hull_3
+	}
+
+	usa_carrier_hull_4 = { #Yorktown
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = usa_ghost_carrier_hull_3
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					yorktown_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_semi_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = empty
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_100_50
+			ship_deck_slot_1 = yorktown_deck_space_90
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_7_4x1
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_7_4x1
+			ship_anti_air_slot_1 = usa_ship_anti_air_1_20x1
+			ship_anti_air_slot_2 = empty
+			ship_anti_air_slot_3 = usa_ship_3_anti_air_5_4x4
+			ship_anti_air_slot_4 = empty
+		}
+
+		manpower = 2220
+		naval_speed = 32.5
+		naval_range = 11600
+		reliability = 0.75
+
+		max_strength = 310
+		build_cost_ic = 17544
+
+		fuel_consumption = 52
+		resources = {
+			steel = 9
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	usa_ghost_carrier_hull_4 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = usa_carrier_hull_4
+	}
+
+	usa_carrier_hull_5 = { #Wasp
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = usa_ghost_carrier_hull_4
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					wasp_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_semi_large_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_armor_slot = ship_armor_90_50
+			ship_deck_slot_1 = wasp_deck_space_70
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_7_4x1
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_7_4x1
+			ship_anti_air_slot_1 = usa_ship_anti_air_1_20x1
+			ship_anti_air_slot_2 = empty
+			ship_anti_air_slot_3 = empty
+			ship_anti_air_slot_4 = usa_ship_anti_air_5_4x4
+		}
+
+		manpower = 2170
+		naval_speed = 29.5
+		naval_range = 11000
+		reliability = 0.75
+
+		max_strength = 240
+		build_cost_ic = 14448
+
+		fuel_consumption = 39
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	usa_ghost_carrier_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = usa_carrier_hull_5
+	}
+
+	usa_carrier_hull_6 = { #Essex
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = usa_ghost_carrier_hull_5
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					essex_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_7 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_armor_slot = ship_armor_100_80
+			ship_deck_slot_1 = essex_deck_space_100
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_7_4x1
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_7_4x2
+			ship_anti_air_slot_1 = usa_ship_2_anti_air_2_20x1
+			ship_anti_air_slot_2 = usa_ship_2_anti_air_2_20x1
+			ship_anti_air_slot_3 = usa_ship_anti_air_2_20x1
+			ship_anti_air_slot_4 = empty
+			ship_anti_air_slot_5 = empty
+			ship_anti_air_slot_6 = usa_ship_large_anti_air_6_4x4
+			ship_anti_air_slot_7 = usa_ship_large_anti_air_6_4x4
+		}
+
+		manpower = 2600
+		naval_speed = 33.0
+		naval_range = 13050
+		reliability = 0.80
+
+		max_strength = 520
+		build_cost_ic = 21534
+
+		fuel_consumption = 74
+		resources = {
+			steel = 11
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	usa_ghost_carrier_hull_6 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = usa_carrier_hull_6
+	}
+
+	usa_carrier_hull_7 = { #Midway
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = usa_ghost_carrier_hull_6
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { very_large_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					midway_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_7 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_8 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_9 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_very_large_ship_engine_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_190_140
+			ship_deck_slot_1 = midway_deck_space_130
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_8_6x1
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_8_6x1
+			ship_secondaries_slot_3 = usa_ship_light_secondaries_8_6x1
+			ship_anti_air_slot_1 = usa_ship_anti_air_3_6x2
+			ship_anti_air_slot_2 = usa_ship_anti_air_3_6x2
+			ship_anti_air_slot_3 = usa_ship_anti_air_3_6x2
+			ship_anti_air_slot_4 = usa_ship_anti_air_3_6x2
+			ship_anti_air_slot_5 = usa_ship_anti_air_3_4x2
+			ship_anti_air_slot_6 = usa_ship_large_anti_air_6_6x4
+			ship_anti_air_slot_7 = usa_ship_large_anti_air_6_6x4
+			ship_anti_air_slot_8 = usa_ship_large_anti_air_6_4x4
+			ship_anti_air_slot_9 = usa_ship_large_anti_air_6_4x4
+		}
+
+		manpower = 4100
+		naval_speed = 33.0
+		naval_range = 15000
+		reliability = 0.80
+
+		max_strength = 750
+		build_cost_ic = 25525
+
+		fuel_consumption = 90
+		resources = {
+			steel = 13
+			#iron = 1
+			coal = 10
+		}
+	}
+
+	usa_ghost_carrier_hull_7 = {
+		year = 1922
+
+		archetype = ship_hull_carrier
+		priority = 1900
+		parent = usa_carrier_hull_7
+	}
+
+	usa_carrier_hull_8 = { #United States
+		year = 1922
+
+		archetype = ship_hull_carrier
+		parent = usa_ghost_carrier_hull_7
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { colossal_ship_engine }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor ship_heavy_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					united_states_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_secondaries_slot_3 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_4 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+			ship_secondaries_slot_5 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_7 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_colossal_ship_engine_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_240_200
+			ship_deck_slot_1 = united_states_deck_space_170
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_8_4x1
+			ship_secondaries_slot_2 = usa_ship_light_secondaries_8_4x1
+			ship_secondaries_slot_3 = usa_ship_light_secondaries_2_6x2
+			ship_secondaries_slot_4 = usa_ship_light_secondaries_2_6x2
+			ship_secondaries_slot_5 = usa_ship_light_secondaries_2_4x2
+			ship_anti_air_slot_1 = usa_ship_anti_air_4_6x2
+			ship_anti_air_slot_2 = usa_ship_anti_air_4_6x2
+			ship_anti_air_slot_3 = usa_ship_anti_air_4_4x2
+			ship_anti_air_slot_4 = usa_ship_anti_air_4_4x2
+			ship_anti_air_slot_5 = usa_ship_large_anti_air_7_6x4
+			ship_anti_air_slot_6 = usa_ship_large_anti_air_7_6x4
+			ship_anti_air_slot_7 = usa_ship_large_anti_air_7_4x4
+		}
+
+		manpower = 5480
+		naval_speed = 30.0
+		naval_range = 15000
+		reliability = 0.85
+
+		max_strength = 1180
+		build_cost_ic = 36051
+
+		fuel_consumption = 166
+		resources = {
+			steel = 20
+			#iron = 1
+			coal = 10
+		}
+	}
+
+
+
+################################################################################################################# CVL FRA France
+################################################################################################################# CVL ITA Italy
+################################################################################################################# CVL JAP Japan
+
+	jap_light_carrier_hull_1 = { #Hosho
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					hosho_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_secondaries_single
+				}
+			}
+
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_semi_medium_ship_engine_6
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = hosho_deck_space_15
+			ship_secondaries_slot_1 = jap_ship_semi_medium_casemate_secondaries_10_4x1
+			ship_secondaries_slot_2 = jap_ship_light_secondaries_1_2x1
+		}
+
+		manpower = 512
+		naval_speed = 25.0
+		naval_range = 8040
+		reliability = 0.65
+
+		max_strength = 100
+		build_cost_ic = 6553
+
+		fuel_consumption = 29
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_light_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = jap_light_carrier_hull_1
+	}
+
+	jap_light_carrier_hull_2 = { #Ryujo
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = jap_ghost_light_carrier_hull_1
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ryujo_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_4
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = ryujo_deck_space_48
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_2x2
+		}
+
+		manpower = 600
+		naval_speed = 29.0
+		naval_range = 9500
+		reliability = 0.70
+
+		max_strength = 130
+		build_cost_ic = 7843
+
+		fuel_consumption = 38
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_light_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = jap_light_carrier_hull_2
+	}
+
+	jap_light_carrier_hull_3 = { #Chitose
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = jap_ghost_light_carrier_hull_2
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					chitose_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_7
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = chitose_deck_space_30
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_4x3
+		}
+
+		manpower = 800
+		naval_speed = 29.0
+		naval_range = 4650
+		reliability = 0.70
+
+		max_strength = 160
+		build_cost_ic = 8514
+
+		fuel_consumption = 47
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_light_carrier_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = jap_light_carrier_hull_3
+	}
+
+	jap_light_carrier_hull_4 = { #Kaiyo
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = jap_ghost_light_carrier_hull_3
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					kaiyo_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_3
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = kaiyo_deck_space_24
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_4x3
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_4x3
+		}
+
+		manpower = 830
+		naval_speed = 23.0
+		naval_range = 6500
+		reliability = 0.75
+
+		max_strength = 160
+		build_cost_ic = 8566
+
+		fuel_consumption = 49
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_light_carrier_hull_4 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = jap_light_carrier_hull_4
+	}
+
+	jap_light_carrier_hull_5 = { #Taiyo
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = jap_ghost_light_carrier_hull_4
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					taiyo_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_single
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_7
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = taiyo_deck_space_30
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = empty
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_4x2
+			ship_anti_air_slot_3 = empty
+		}
+
+		manpower = 850
+		naval_speed = 21.0
+		naval_range = 7850
+		reliability = 0.75
+
+		max_strength = 250
+		build_cost_ic = 9907
+
+		fuel_consumption = 61
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_light_carrier_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = jap_light_carrier_hull_5
+	}
+
+	jap_light_carrier_hull_6 = { #Ryuho
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = jap_ghost_light_carrier_hull_5
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ryuho_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_medium_ship_engine_8
+			fixed_ship_radar_slot = ship_radar_1
+			ship_deck_slot_1 = ryuho_deck_space_36
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_4x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_2_20x1
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_4x2
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_4 = jap_ship_anti_air_3_4x3
+		}
+
+		manpower = 990
+		naval_speed = 26.5
+		naval_range = 7500
+		reliability = 0.75
+
+		max_strength = 220
+		build_cost_ic = 9804
+
+		fuel_consumption = 50
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	jap_ghost_light_carrier_hull_6 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = jap_light_carrier_hull_6
+	}
+
+	jap_light_carrier_hull_7 = { #Unryu
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = jap_ghost_light_carrier_hull_6
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					unryu_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_triple
+					ship_3_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_triple
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = jap_semi_large_ship_engine_1
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_50_25
+			ship_deck_slot_1 = unryu_deck_space_53
+			ship_secondaries_slot_1 = jap_ship_light_secondaries_4_6x2
+			ship_anti_air_slot_1 = jap_ship_anti_air_3_20x1
+			ship_anti_air_slot_2 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_3 = jap_ship_anti_air_3_6x3
+			ship_anti_air_slot_4 = jap_ship_anti_air_3_4x3
+			ship_anti_air_slot_5 = jap_ship_anti_air_3_4x3
+		}
+
+		manpower = 1595
+		naval_speed = 32.0
+		naval_range = 7500
+		reliability = 0.80
+
+		max_strength = 280
+		build_cost_ic = 10372
+
+		fuel_consumption = 53
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CVL GER Germany
+
+	ger_light_carrier_hull_1 = { #Jade
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					jade_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_semi_medium_ship_engine_3
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = jade_deck_space_23
+			ship_secondaries_slot_1 = ger_ship_light_secondaries_6_4x2
+			ship_anti_air_slot_1 = ger_ship_anti_air_2_6x2
+			ship_anti_air_slot_2 = ger_ship_anti_air_2_6x2
+		}
+
+		manpower = 880
+		naval_speed = 19.0
+		naval_range = 5400
+		reliability = 0.7
+
+		max_strength = 180
+		build_cost_ic = 10165
+
+		fuel_consumption = 53
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ger_ghost_light_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = ger_light_carrier_hull_1
+	}
+
+	ger_light_carrier_hull_2 = { #Weser
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = ger_ghost_light_carrier_hull_1
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					weser_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_semi_medium_ship_engine_4
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = weser_deck_space_30
+			ship_secondaries_slot_1 = ger_ship_light_secondaries_6_6x2
+			ship_anti_air_slot_1 = ger_ship_anti_air_2_6x2
+			ship_anti_air_slot_2 = ger_ship_anti_air_2_6x2
+			ship_anti_air_slot_3 = ger_ship_large_anti_air_4_6x2
+		}
+
+		manpower = 1340
+		naval_speed = 28.0
+		naval_range = 8500
+		reliability = 0.75
+
+		max_strength = 250
+		build_cost_ic = 10526
+
+		fuel_consumption = 60
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	ger_ghost_light_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = ger_light_carrier_hull_2
+	}
+
+	ger_light_carrier_hull_3 = { #Nordlicht
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = ger_ghost_light_carrier_hull_2
+		priority = 1000
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					nordlicht_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_3_light_secondaries_single
+					ship_3_light_secondaries_duel
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = ger_semi_medium_ship_engine_5
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = nordlicht_deck_space_42
+			ship_secondaries_slot_1 = ger_ship_light_secondaries_6_6x2
+			ship_anti_air_slot_1 = ger_ship_anti_air_2_6x4
+			ship_anti_air_slot_2 = ger_ship_large_anti_air_5_4x2
+			ship_anti_air_slot_3 = ger_ship_large_anti_air_5_4x2
+		}
+
+		manpower = 1424
+		naval_speed = 31.0
+		naval_range = 11000
+		reliability = 0.80
+
+		max_strength = 300
+		build_cost_ic = 12384
+
+		fuel_consumption = 75
+		resources = {
+			steel = 10
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CVL SOV Soviet Union
+################################################################################################################# CVL ENG United Kingdom
+
+	eng_light_carrier_hull_1 = { #Argus
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					argus_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_3
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = argus_deck_space_18
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_4_4x1
+			ship_anti_air_slot_1 = empty
+		}
+
+		manpower = 495
+		naval_speed = 20.0
+		naval_range = 3350
+		reliability = 0.60
+
+		max_strength = 160
+		build_cost_ic = 8514
+
+		fuel_consumption = 47
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_light_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = eng_light_carrier_hull_1
+	}
+
+	eng_light_carrier_hull_2 = { #Hermes
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = eng_ghost_light_carrier_hull_1
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					hermes_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_semi_medium_casemate_secondaries_single
+				}
+			}
+			ship_secondaries_slot_2 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+					ship_anti_air_sextuple
+					ship_anti_air_octuple
+					ship_large_anti_air_duel
+					ship_large_anti_air_quad
+					ship_large_anti_air_sextuple
+					ship_large_anti_air_octuple
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_5
+			fixed_ship_radar_slot = empty
+			ship_deck_slot_1 = hermes_deck_space_20
+			ship_secondaries_slot_1 = eng_ship_semi_medium_casemate_secondaries_12_4x1
+			ship_secondaries_slot_2 = eng_ship_light_secondaries_4_4x1
+			ship_anti_air_slot_1 = empty
+		}
+
+		manpower = 566
+		naval_speed = 25.0
+		naval_range = 5200
+		reliability = 0.65
+
+		max_strength = 190
+		build_cost_ic = 8204
+
+		fuel_consumption = 41
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_light_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = eng_light_carrier_hull_2
+	}
+
+	eng_light_carrier_hull_3 = { #Unicorn
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = eng_ghost_light_carrier_hull_2
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					unicorn_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_medium_ship_engine_7
+			fixed_ship_radar_slot = ship_radar_2
+			ship_deck_slot_1 = unicorn_deck_space_33
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_5_4x2
+			ship_anti_air_slot_1 = eng_ship_anti_air_3_10x1
+			ship_anti_air_slot_2 = eng_ship_anti_air_3_2x2
+			ship_anti_air_slot_3 = eng_ship_large_anti_air_5_4x4
+		}
+
+		manpower = 1200
+		naval_speed = 24.0
+		naval_range = 6500
+		reliability = 0.75
+
+		max_strength = 300
+		build_cost_ic = 10320
+
+		fuel_consumption = 61
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_light_carrier_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = eng_light_carrier_hull_3
+	}
+
+	eng_light_carrier_hull_4 = { #Audacity
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = eng_ghost_light_carrier_hull_3
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					audacity_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_semi_medium_ship_engine_4
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_armor_slot = ship_armor_80_50
+			ship_deck_slot_1 = audacity_deck_space_14
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_5_4x1
+			ship_anti_air_slot_1 = eng_ship_anti_air_3_4x2
+			ship_anti_air_slot_2 = eng_ship_large_anti_air_5_4x4
+		}
+
+		manpower = 480
+		naval_speed = 15.0
+		naval_range = 7000
+		reliability = 0.75
+
+		max_strength = 110
+		build_cost_ic = 6450
+
+		fuel_consumption = 22
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_light_carrier_hull_4 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = eng_light_carrier_hull_4
+	}
+
+	eng_light_carrier_hull_5 = { #Nairana
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = eng_ghost_light_carrier_hull_4
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_carrier_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					nairana_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+					ship_2_light_secondaries_duel
+				}
+			}
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = generic_medium_carrier_ship_engine_1
+			fixed_ship_radar_slot = ship_radar_3
+			ship_deck_slot_1 = nairana_deck_space_20
+			ship_secondaries_slot_1 = eng_ship_light_secondaries_5_4x2
+			ship_anti_air_slot_1 = eng_ship_anti_air_3_4x2
+			ship_anti_air_slot_2 = eng_ship_anti_air_3_4x2
+			ship_anti_air_slot_3 = eng_ship_large_anti_air_5_4x4
+		}
+
+		manpower = 700
+		naval_speed = 17.0
+		naval_range = 7000
+		reliability = 0.80
+
+		max_strength = 190
+		build_cost_ic = 7740
+
+		fuel_consumption = 42
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_light_carrier_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = eng_light_carrier_hull_5
+	}
+
+	eng_light_carrier_hull_6 = { #Colossus
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = eng_ghost_light_carrier_hull_5
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					colossus_deck_space
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_3_anti_air_duel
+					ship_3_anti_air_quad
+					ship_3_large_anti_air_duel
+					ship_3_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_semi_large_ship_engine_0
+			fixed_ship_radar_slot = ship_radar_4
+			ship_deck_slot_1 = colossus_deck_space_52
+			ship_anti_air_slot_1 = eng_ship_anti_air_3_6x2
+			ship_anti_air_slot_2 = eng_ship_anti_air_3_6x2
+			ship_anti_air_slot_3 = eng_ship_anti_air_3_4x2
+			ship_anti_air_slot_4 = eng_ship_large_anti_air_5_6x4
+		}
+
+		manpower = 1050
+		naval_speed = 25.0
+		naval_range = 11000
+		reliability = 0.80
+
+		max_strength = 480
+		build_cost_ic = 10114
+
+		fuel_consumption = 54
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	eng_ghost_light_carrier_hull_6 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = eng_light_carrier_hull_6
+	}
+
+	eng_light_carrier_hull_7 = { #Centaur
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = eng_ghost_light_carrier_hull_6
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_large_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					centaur_deck_space
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_single_10
+					ship_large_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+					ship_anti_air_sextuple
+					ship_large_anti_air_duel
+					ship_large_anti_air_quad
+					ship_large_anti_air_sextuple
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = eng_semi_large_ship_engine_2
+			fixed_ship_radar_slot = ship_radar_4
+			ship_deck_slot_1 = centaur_deck_space_52
+			ship_anti_air_slot_1 = eng_ship_large_anti_air_6_10x1
+			ship_anti_air_slot_2 = eng_ship_large_anti_air_6_4x2
+			ship_anti_air_slot_3 = eng_ship_large_anti_air_6_4x2
+			ship_anti_air_slot_4 = eng_ship_large_anti_air_6_2x6
+		}
+
+		manpower = 1390
+		naval_speed = 28.0
+		naval_range = 15500
+		reliability = 0.80
+
+		max_strength = 590
+		build_cost_ic = 13106
+
+		fuel_consumption = 86
+		resources = {
+			steel = 10
+			#iron = 1
+			coal = 7
+		}
+	}
+
+################################################################################################################# CVL USA United States
+
+	usa_light_carrier_hull_1 = { #Long Island
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					long_island_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_semi_medium_ship_engine_4
+			fixed_ship_radar_slot = ship_radar_2
+			ship_deck_slot_1 = long_island_deck_space_30
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_5_4x1
+		}
+
+		manpower = 970
+		naval_speed = 16.5
+		naval_range = 6000
+		reliability = 0.75
+
+		max_strength = 140
+		build_cost_ic = 7379
+
+		fuel_consumption = 41
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_light_carrier_hull_1 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = usa_light_carrier_hull_1
+	}
+
+	usa_light_carrier_hull_2 = { #Bogue
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = usa_ghost_light_carrier_hull_1
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { semi_medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					bogue_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_2_light_secondaries_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_large_anti_air_duel
+					ship_anti_air_quad
+					ship_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_semi_medium_ship_engine_3
+			fixed_ship_radar_slot = ship_radar_3
+			ship_deck_slot_1 = bogue_deck_space_24
+			ship_secondaries_slot_1 = usa_ship_light_secondaries_5_4x1
+			ship_anti_air_slot_1 = usa_ship_anti_air_2_20x1
+			ship_anti_air_slot_2 = usa_ship_large_anti_air_6_2x4
+		}
+
+		manpower = 890
+		naval_speed = 18.0
+		naval_range = 6000
+		reliability = 0.80
+
+		max_strength = 100
+		build_cost_ic = 6295
+
+		fuel_consumption = 29
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_light_carrier_hull_2 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = usa_light_carrier_hull_2
+	}
+
+	usa_light_carrier_hull_3 = { #Independence
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = usa_ghost_light_carrier_hull_2
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					independence_deck_space
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_anti_air_duel
+					ship_anti_air_quad
+					ship_large_anti_air_duel
+					ship_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_medium_ship_engine_5
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_130_50
+			ship_deck_slot_1 = independence_deck_space_34
+			ship_anti_air_slot_1 = usa_ship_anti_air_3_20x1
+			ship_anti_air_slot_2 = usa_ship_large_anti_air_6_4x2
+			ship_anti_air_slot_3 = usa_ship_large_anti_air_6_4x2
+			ship_anti_air_slot_4 = usa_ship_large_anti_air_6_2x4
+		}
+
+		manpower = 1460
+		naval_speed = 31.0
+		naval_range = 12000
+		reliability = 0.80
+
+		max_strength = 150
+		build_cost_ic = 8772
+
+		fuel_consumption = 45
+		resources = {
+			steel = 7
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_light_carrier_hull_3 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = usa_light_carrier_hull_3
+	}
+
+	usa_light_carrier_hull_5 = { #Casablanca
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = usa_ghost_light_carrier_hull_3
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { small_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					casablanca_deck_space
+				}
+			}
+
+			ship_secondaries_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					ship_light_battery_single
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+					ship_2_large_anti_air_single
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_single_10
+					ship_2_large_anti_air_single
+					ship_2_large_anti_air_duel
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_small_ship_engine_1
+			fixed_ship_radar_slot = ship_radar_4
+			ship_deck_slot_1 = casablanca_deck_space_27
+			ship_secondaries_slot_1 = usa_ship_light_battery_6_x1
+			ship_anti_air_slot_1 = usa_ship_2_anti_air_3_10x1
+			ship_anti_air_slot_2 = usa_ship_2_anti_air_3_10x1
+			ship_anti_air_slot_3 = usa_ship_2_anti_air_3_10x1
+			ship_anti_air_slot_4 = usa_ship_large_anti_air_7_4x1
+			ship_anti_air_slot_5 = usa_ship_large_anti_air_7_4x1
+		}
+
+		manpower = 910
+		naval_speed = 19.0
+		naval_range = 10000
+		reliability = 0.85
+
+		max_strength = 110
+		build_cost_ic = 6760
+
+		fuel_consumption = 33
+		resources = {
+			steel = 5
+			#iron = 1
+			coal = 7
+		}
+	}
+
+	usa_ghost_light_carrier_hull_5 = {
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		priority = 1900
+		parent = usa_light_carrier_hull_5
+	}
+
+	usa_light_carrier_hull_4 = { #Saipan
+		year = 1922
+
+		archetype = ship_hull_light_carrier
+		parent = usa_ghost_light_carrier_hull_5
+		priority = 900
+
+		module_slots = {
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { medium_ship_engine }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar }
+			}
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_armor ship_medium_armor }
+			}
+
+			ship_deck_slot_1 = {
+				required = yes
+				allowed_module_categories = {
+					saipan_deck_space
+				}
+			}
+
+			ship_anti_air_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_large_anti_air_duel
+				}
+			}
+			ship_anti_air_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+			ship_anti_air_slot_6 = {
+				required = no
+				allowed_module_categories = {
+					ship_2_anti_air_duel
+					ship_2_anti_air_quad
+					ship_2_large_anti_air_duel
+					ship_2_large_anti_air_quad
+				}
+			}
+		}
+
+		default_modules = {
+			fixed_ship_engine_slot = usa_medium_ship_engine_5
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_armor_slot = ship_armor_150_110
+			ship_deck_slot_1 = saipan_deck_space_42
+			ship_anti_air_slot_1 = usa_ship_anti_air_3_4x2
+			ship_anti_air_slot_2 = usa_ship_anti_air_3_4x2
+			ship_anti_air_slot_3 = usa_ship_large_anti_air_7_4x2
+			ship_anti_air_slot_4 = usa_ship_large_anti_air_7_4x2
+			ship_anti_air_slot_5 = usa_ship_large_anti_air_7_4x4
+			ship_anti_air_slot_6 = usa_ship_large_anti_air_7_4x4
+		}
+
+		manpower = 1700
+		naval_speed = 33.0
+		naval_range = 12000
+		reliability = 0.80
+
+		max_strength = 190
+		build_cost_ic = 10320
+
+		fuel_consumption = 57
+		resources = {
+			steel = 8
+			#iron = 1
+			coal = 7
+		}
+	}
+}
